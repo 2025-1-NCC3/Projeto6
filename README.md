@@ -8,9 +8,9 @@
 
 ## Grupo 6
 
-## Integrantes: <a href="https://www.linkedin.com/in/victorbarq/">Gabriel Debastiani Davanço</a>, <a href="https://www.linkedin.com/in/victorbarq/">Gabriel Paschoal</a>, <a href="https://www.linkedin.com/in/victorbarq/">Guilherme Melo</a>, <a href="https://www.linkedin.com/in/victorbarq/">Nicolas Morales</a>
+## Integrantes: <a href="www.linkedin.com/in/gabriel-davanço-5543992b8">Gabriel Debastiani Davanço</a>, <a href="https://www.linkedin.com/in/gabriel-higobassi-paschoal/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Gabriel Higobassi Paschoal</a>, <a href="https://www.linkedin.com/in/guilherme-costa-2854a421a/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">Guilherme Melo da Costa</a>, <a href="https://github.com/Nicolasrjm2">Nicolas Roberto Jordan Morales</a>
 
-## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Marco Aurelio Lima Barbosa</a>, <a href="https://www.linkedin.com/in/victorbarq/">Katia Milani Lara Bossi</a>, <a href="https://www.linkedin.com/in/victorbarq/">Vinicius Heltai Pacheco</a>, <a href="https://www.linkedin.com/in/victorbarq/">Victor Bruno Alexander Rosetti de Quiroz</a>
+## Professores Orientadores: <a href="https://www.linkedin.com/in/marco-aurelio-lima-barbosa/">Marco Aurelio Lima Barbosa</a>, <a href="https://www.linkedin.com/in/katia-bossi/">Katia Milani Lara Bossi</a>, <a href="https://www.linkedin.com/in/vheltai/">Vinicius Heltai Pacheco</a>, <a href="https://www.linkedin.com/in/victorbarq/">Victor Bruno Alexander Rosetti de Quiroz</a>
 
 ## Descrição
 
