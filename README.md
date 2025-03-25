@@ -4,7 +4,7 @@
 <a href= "https://www.fecap.br/"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhZPrRa89Kma0ZZogxm0pi-tCn_TLKeHGVxywp-LXAFGR3B1DPouAJYHgKZGV0XTEf4AE&usqp=CAU" alt="FECAP - Fundação de Comércio Álvares Penteado" border="0"></a>
 </p>
 
-# Uber - GMS
+# Uber - Track Tracker
 
 ## Grupo 6
 
@@ -15,8 +15,8 @@
 ## Descrição
 
 <p align="center">
-<img src="![UBER - Get More Security](https://github.com/user-attachments/assets/8e5f7379-f91c-490f-86df-be04ddca2607)" alt="NOME DO JOGO" border="0">
-  Imagem criada por <a href="www.linkedin.com/in/gabriel-davanço-5543992b8">Gabriel Davanço</a><a rel="license" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> <a href="http://pix4free.org/">Pix4free</a>
+<a href='https://postimages.org/' target='_blank'><img src='https://i.postimg.cc/BvTt1dHR/Uber-Track-Tracker-Logo.png' border='0' alt='Uber-Track-Tracker-Logo'/></a><br>
+  Imagem criada por <a href="www.linkedin.com/in/gabriel-davanço-5543992b8">Gabriel Davanço</a> <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">CC BY 4.0<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""></a>
 </p>
 
 
@@ -26,6 +26,12 @@ O projeto têm como intuito, criar novas medidas de segurança para usuários do
 - Avaliação atual do usuário: Uma nova avaliação para complementar as já existentes estrelas. O número será uma média das últimas 20 avaliações do usuário.
 - Obrigatoriedade da ativação da câmera e microfone: O motorista terá que gravar o áudio e o vídeo de toda a viagem. Já o passageiro será obrigado a gravar apenas o áudio, mas será apresentado com a opção de ativar a câmera caso queira. Os arquivos serão armazenados no aparelho dos usuários.
 <br><br>
+
+## Protótipo Figma
+<img src="https://camo.githubusercontent.com/63611e6b7e574d3125358b44c0dcd71f4381d55d8605a15a3e321d3cb9191967/68747470733a2f2f696d672e69636f6e73382e636f6d2f3f73697a653d3130302669643d7a6648525a3669315767305526666f726d61743d706e6726636f6c6f723d303030303030" alt="Logo Figma" border="0">
+<a href="https://www.figma.com/design/FazRrWgeCm47oprTd64IGR/App-uber---prot%C3%B3tipo-naveg%C3%A1vel?node-id=0-1&t=neIQejhVchOfYByS-1">Editor Figma Uber - Track Tracker<br>
+<a href="https://www.figma.com/proto/FazRrWgeCm47oprTd64IGR/App-uber---prot%C3%B3tipo-naveg%C3%A1vel?node-id=64-517&p=f&t=sSVpmyABnQQum9aC-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=64%3A517">Protóripo Navegável Uber - Track Tracker
+
 
 ## 🛠 Estrutura de pastas
 
@@ -60,7 +66,7 @@ Há também 4 pastas que seguem da seguinte forma:
 
 <b>Android:</b>
 
-Faça o Download do Uber.apk no seu celular.
+Faça o Download do Uber Track Tracker.apk no seu celular.
 Execute o APK e siga as instruções de seu telefone.
 
 ## 💻 Configuração para Desenvolvimento
