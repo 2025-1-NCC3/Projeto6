@@ -20,7 +20,7 @@
 </p>
 
 
-O projeto têm como intuito, criar novas medidas de segurança para usuários do aplicativo uber, tanto para motoristas como para passageiros. Após muita discussão, chegamos a conclusão de 3 novas medidas: Detecção de distânciamento de rota; Avaliação atual do usuário; Obrigatoriedade da ativação da câmera e microfone.
+O projeto tem como intuito, criar medidas de segurança para usuários do aplicativo Uber, tanto para motoristas como para passageiros. Após muita discussão, chegamos à conclusão de 3 novas medidas: Detecção de distanciamento de rota; Avaliação atual do usuário; Obrigatoriedade da ativação da câmera e microfone.
 <br><br>
 - Detecção de distânciamento: Caso o motorista se afastar demais da rota apontada pelo GPS, o passageiro irá receber notificações, e caso necessário, mandará alertas para contatos de confiança.
 - Avaliação atual do usuário: Uma nova avaliação para complementar as já existentes estrelas. O número será uma média das últimas 20 avaliações do usuário.
