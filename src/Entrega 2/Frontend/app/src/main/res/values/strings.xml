@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Tela home-->
+    <string name="appName">Projeto PI - TrackTracker</string>
+    <string name="appTxtTHomeMotorista">MOTORISTA</string>
+    <string name="appTxtTHomePassageiro">PASSAGEIRO</string>
+</resources>
