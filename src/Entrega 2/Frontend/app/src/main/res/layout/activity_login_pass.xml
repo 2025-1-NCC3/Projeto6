@@ -5,6 +5,105 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginPass">
+    tools:context=".LoginMoto">
+
+    <ImageView
+        android:id="@+id/imgBackground"
+        android:layout_width="412dp"
+        android:layout_height="895dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/backgroundt1" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:srcCompat="@drawable/iconarrow" />
+
+    <ImageView
+        android:id="@+id/imgIconCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/cinzaClaro"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15"
+        app:srcCompat="@drawable/iconperson" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="@color/preto"
+        android:backgroundTintMode="src_in"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/appTxtHintEmail"
+            android:background="@color/cinzaClaro"
+            android:padding="12dp"
+            android:textColor="@color/preto"
+            android:textColorHint="@color/cinzaHint"
+            android:layout_marginBottom="16dp"
+            />
+
+        <EditText
+            android:id="@+id/etSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/appTxtHintSenha"
+            android:background="@color/cinzaClaro"
+            android:padding="12dp"
+            android:textColor="@color/preto"
+            android:textColorHint="@color/cinzaHint"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/txtLinkCadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appTxtCadastro"
+            android:textColor="@color/branco"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            />
+
+        <Button
+            android:id="@+id/btnSeguinte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/cinzaClaro"
+            android:text="@string/appBtnSeguinte"
+            android:textColor="@color/preto"
+            android:textSize="25sp"
+            android:layout_marginTop="50dp"/>
+
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

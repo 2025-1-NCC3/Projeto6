@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--Tela home-->
-    <string name="appName">Projeto PI - TrackTracker</string>
+    <string name="app_name">Projeto PI -TrackTracker</string>
     <string name="appTxtTHomeMotorista">MOTORISTA</string>
     <string name="appTxtTHomePassageiro">PASSAGEIRO</string>
+
+<!--Tela login-->
+    <string name="appBtnSeguinte">SEGUINTE</string>
+    <string name="appTxtCadastro">Não possui conta? Cadastre-se já!</string>
+    <string name="appTxtHintEmail">E-mail</string>
+    <string name="appTxtHintSenha">Senha</string>
 </resources>

@@ -8,27 +8,101 @@
     tools:context=".LoginMoto">
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="411dp"
-        android:layout_height="736dp"
+        android:id="@+id/imgBackground"
+        android:layout_width="408dp"
+        android:layout_height="900dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/backgroundt2login" />
+        app:srcCompat="@drawable/backgroundt1" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgIconCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/cinzaClaro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.15"
         app:srcCompat="@drawable/iconcar" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:background="@color/preto"
+        android:backgroundTintMode="src_in"
+        android:orientation="vertical"
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/cinzaClaro"
+            android:hint="@string/appTxtHintEmail"
+            android:padding="12dp"
+            android:textColor="@color/preto"
+            android:textColorHint="@color/cinzaHint" />
+
+        <EditText
+            android:id="@+id/etSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/cinzaClaro"
+            android:hint="@string/appTxtHintSenha"
+            android:padding="12dp"
+            android:textColor="@color/preto"
+            android:textColorHint="@color/cinzaHint" />
+
+        <TextView
+            android:id="@+id/txtLinkCadastro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/appTxtCadastro"
+            android:textColor="@color/branco"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/btnSeguinte"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:backgroundTint="@color/cinzaClaro"
+            android:text="@string/appBtnSeguinte"
+            android:textColor="@color/preto"
+            android:textSize="25sp" />
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="voltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:srcCompat="@drawable/iconarrow" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
