@@ -10,13 +10,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class LoginMoto extends AppCompatActivity {
+public class CadastroMotoPessoal extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_login_moto);
+        setContentView(R.layout.activity_cadastro_moto_pessoal);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -24,12 +24,13 @@ public class LoginMoto extends AppCompatActivity {
         });
     }
 
+    public void seguinteCarro(View view){
+        Intent telaCarro = new Intent(this, CadastroMotoCar.class);
+        startActivity(telaCarro);
+    }
+
     public void voltar(View view){
         finish();
-    }
-    public void cadastro(View view){
-        Intent cadastro = new Intent(this, CadastroMotoPessoal.class);
-        startActivity(cadastro);
     }
 
     @Override

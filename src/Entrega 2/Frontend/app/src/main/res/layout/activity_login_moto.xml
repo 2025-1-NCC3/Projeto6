@@ -23,7 +23,7 @@
         android:id="@+id/imgIconCar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@color/cinzaClaro"
+        android:background="@drawable/icon_arredondado"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="16dp"
-        android:background="@color/preto"
+        android:background="@drawable/formulario_arredondado"
         android:backgroundTintMode="src_in"
         android:orientation="vertical"
         android:padding="24dp"
@@ -76,7 +76,9 @@
             android:text="@string/appTxtCadastro"
             android:textColor="@color/branco"
             android:textSize="14sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:onClick="cadastro"
+            />
 
         <Button
             android:id="@+id/btnSeguinte"
@@ -92,7 +94,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"

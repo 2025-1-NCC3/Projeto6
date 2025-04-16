@@ -5,9 +5,34 @@
     <string name="appTxtTHomeMotorista">MOTORISTA</string>
     <string name="appTxtTHomePassageiro">PASSAGEIRO</string>
 
-<!--Tela login-->
+    <!--Tela login-->
     <string name="appBtnSeguinte">SEGUINTE</string>
     <string name="appTxtCadastro">Não possui conta? Cadastre-se já!</string>
     <string name="appTxtHintEmail">E-mail</string>
     <string name="appTxtHintSenha">Senha</string>
+
+    <!--Tela de cadastro-->
+    <string name="appTxtTitulo">CADASTRO MOTORISTA</string>
+    <string name="appTxtSubTitulo1">1. Informações pessoais</string>
+    <string name="appTxtSubTitulo2">2. Informações do carro</string>
+    <string name="appTxtSubTitulo3">3. Criação de senha</string>
+
+    <string name="appTxtHintNome">Nome</string>
+    <string name="appTxtHintSobrenome">Sobrenome</string>
+    <string name="appTxtHintCpf">CPF</string>
+    <string name="appTxtHintDataNasc">Data de Nascimento</string>
+    <!--    <string name="appTxtHintEmail">E-mail</string>-->
+    <string name="appTxtHintTel">Telefone</string>
+    <string name="appTxtHintEndereco">Endereço (Bairro, Rua - número)</string>
+
+    <string name="appTxtHintCnh">CNH</string>
+    <string name="appTxtHintMarca">Marca</string>
+    <string name="appTxtHintModelo">Modelo</string>
+    <string name="appTxtHintAno">Ano do carro</string>
+    <string name="appTxtHintPlaca">Placa</string>
+    <string name="appTxtHintCategoria">Categoria do veículo(Executive, Comfort, Black)</string>
+
+    <string name="appTxtHintCrieSenha">Crie uma senha</string>
+    <string name="appTxtHintConfirmaSenha">Confirme sua senha</string>
+
 </resources>
