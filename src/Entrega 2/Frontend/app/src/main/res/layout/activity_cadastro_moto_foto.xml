@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".CadastroMotoCar">
+    tools:context=".CadastroMotoFoto">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtitulo3CadastroPass"
+        android:id="@+id/txtSubtituloCadastroMoto4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"

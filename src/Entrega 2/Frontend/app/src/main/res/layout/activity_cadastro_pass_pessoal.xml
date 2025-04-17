@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,7 +9,7 @@
     tools:context=".CadastroPassPessoal">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -23,7 +22,7 @@
         app:srcCompat="@drawable/iconarrow" />
 
     <TextView
-        android:id="@+id/txtTituloCadastroMoto"
+        android:id="@+id/txtTituloCadastroPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/appTxtTituloPass"
@@ -38,7 +37,7 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtitulo1CadastroMoto"
+        android:id="@+id/txtSubtituloCadastroPass1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"

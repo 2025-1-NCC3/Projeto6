@@ -3,6 +3,7 @@ package br.com.fecap.projetopi_tracktracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,16 +13,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class CadastroMotoSenha extends AppCompatActivity {
 
+    private EditText etSenha;
+    private String senha;
+
+    //infos da tela anterior
+    private String nome, sobrenome, cpf, dataNascimento, email, telefone, endereco;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_cadastro_moto_senha);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
     }
 
 

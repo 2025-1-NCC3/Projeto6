@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/backgroundt1" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/iconarrow" />
 
     <ImageView
-        android:id="@+id/imgIconCar"
+        android:id="@+id/imgIconPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/icon_arredondado"
@@ -90,6 +90,7 @@
             android:textColor="@color/branco"
             android:textSize="14sp"
             android:textStyle="italic"
+            android:onClick="cadastro"
             />
 
         <Button

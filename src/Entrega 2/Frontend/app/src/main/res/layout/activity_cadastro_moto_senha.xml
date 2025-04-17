@@ -9,7 +9,7 @@
     tools:context=".CadastroMotoSenha">
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtitulo3CadastroMoto"
+        android:id="@+id/txtSubtituloCadastroMoto3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"

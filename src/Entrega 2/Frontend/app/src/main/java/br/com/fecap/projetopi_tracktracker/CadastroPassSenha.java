@@ -38,6 +38,21 @@ public class CadastroPassSenha extends AppCompatActivity {
 
     }
 
+    public void seguinteFoto(View view){
+
+        senha = etSenha.getText().toString().trim();
+
+        Intent intent = new Intent(this, CadastroPassFoto.class);
+        intent.putExtra("senha", senha);
+        intent.putExtra("nome", nome);
+        intent.putExtra("sobrenome", sobrenome);
+        intent.putExtra("cpf", cpf);
+        intent.putExtra("dataNascimento", dataNascimento);
+        intent.putExtra("email", email);
+        intent.putExtra("telefone", telefone);
+        intent.putExtra("endereco", endereco);
+        startActivity(intent);
+    }
 
 
 

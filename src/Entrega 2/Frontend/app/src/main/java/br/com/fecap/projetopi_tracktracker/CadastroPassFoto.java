@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -18,6 +19,8 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 public class CadastroPassFoto extends AppCompatActivity {
+
+    private String nome, sobrenome, cpf, dataNasc, email, telefone, endereco, senha;
 
     private static final int pedirCamera = 100;
     private static final int pedirGaleria = 101;
@@ -29,6 +32,17 @@ public class CadastroPassFoto extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pass_foto);
+
+        Intent intent = getIntent();
+
+        nome = intent.getStringExtra("nome");
+        sobrenome = intent.getStringExtra("sobrenome");
+        cpf = intent.getStringExtra("cpf");
+        dataNasc = intent.getStringExtra("dataNasc");
+        email = intent.getStringExtra("email");
+        telefone = intent.getStringExtra("telefone");
+        endereco = intent.getStringExtra("endereco");
+        senha = intent.getStringExtra("senha");
 
         imagePreview = findViewById(R.id.imgPreview);
         Button btnCamera = findViewById(R.id.btnCamera);
@@ -84,5 +98,9 @@ public class CadastroPassFoto extends AppCompatActivity {
         } else {
             Toast.makeText(this, "Nenhuma imagem selecionada", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void voltar(View view){
+        finish();
     }
 }

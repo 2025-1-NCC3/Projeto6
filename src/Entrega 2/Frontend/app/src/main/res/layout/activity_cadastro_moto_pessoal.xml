@@ -9,7 +9,7 @@
     tools:context=".CadastroMotoPessoal">
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtitulo1CadastroMoto"
+        android:id="@+id/txtSubtituloCadastroMoto1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
