@@ -25,7 +25,7 @@
         android:id="@+id/txtTituloCadastroMoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTitulo"
+        android:text="@string/appTxtTituloMoto"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"

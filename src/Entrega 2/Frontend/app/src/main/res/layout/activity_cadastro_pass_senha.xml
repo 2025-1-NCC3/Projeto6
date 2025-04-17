@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".CadastroMotoCar">
+    tools:context=".CadastroPassSenha">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -25,7 +25,7 @@
         android:id="@+id/txtTituloCadastroMoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTituloMoto"
+        android:text="@string/appTxtTituloPass"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"
@@ -37,11 +37,11 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtitulo2CadastroMoto"
+        android:id="@+id/txtSubtitulo3CadastroMoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
-        android:text="@string/appTxtSubTitulo2"
+        android:text="@string/appTxtSubTitulo3Pass"
         android:textSize="23sp"
         android:textColor="@color/preto"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,6 +52,7 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="0dp"
         android:layout_height="415dp"
         android:orientation="vertical"
@@ -64,68 +65,24 @@
 
 
         <EditText
-            android:id="@+id/etCNH"
+            android:id="@+id/etSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
             android:ems="10"
-            android:hint="@string/appTxtHintCnh"
+            android:hint="@string/appTxtHintCrieSenha"
             android:inputType="text"
             android:padding="12dp" />
 
         <EditText
-            android:id="@+id/etMarca"
+            android:id="@+id/etConfirmaSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
             android:ems="10"
-            android:hint="@string/appTxtHintMarca"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/etModelo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/caixa_edit_text"
-            android:ems="10"
-            android:hint="@string/appTxtHintModelo"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/etAno"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/caixa_edit_text"
-            android:ems="10"
-            android:hint="@string/appTxtHintAno"
-            android:inputType="text"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/etPlaca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/caixa_edit_text"
-            android:ems="10"
-            android:hint="@string/appTxtHintPlaca"
-            android:inputType="phone"
-            android:padding="12dp" />
-
-        <EditText
-            android:id="@+id/etCategoria"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/caixa_edit_text"
-            android:ems="10"
-            android:hint="@string/appTxtHintCategoria"
+            android:hint="@string/appTxtHintConfirmaSenha"
             android:inputType="text"
             android:padding="12dp" />
 
@@ -142,7 +99,6 @@
         android:text="@string/appBtnSeguinte"
         android:textColor="@color/branco"
         android:textSize="25sp"
-        android:onClick="seguinteSenha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

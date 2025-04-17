@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".CadastroMotoCar">
+    tools:context=".CadastroMotoSenha">
 
     <ImageView
         android:id="@+id/imageView5"
@@ -25,7 +25,7 @@
         android:id="@+id/txtTituloCadastroMoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTitulo"
+        android:text="@string/appTxtTituloMoto"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"
@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
-        android:text="@string/appTxtSubTitulo3"
+        android:text="@string/appTxtSubTitulo3Moto"
         android:textSize="23sp"
         android:textColor="@color/preto"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -99,6 +99,7 @@
         android:text="@string/appBtnSeguinte"
         android:textColor="@color/branco"
         android:textSize="25sp"
+        android:onClick="seguinteFoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

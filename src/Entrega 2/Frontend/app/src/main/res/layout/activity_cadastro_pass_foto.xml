@@ -1,0 +1,50 @@
+<!-- res/layout/activity_profile_picture.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_profile_picture"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cinzaClaro"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    tools:context=".CadastroPassFoto">
+
+    <TextView
+        android:id="@+id/txtInstrucao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Escolha sua foto de perfil"
+        android:textColor="@color/preto"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="32dp" />
+
+    <ImageView
+        android:id="@+id/imgPreview"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/icon_arredondado"
+        android:scaleType="fitCenter"
+        android:src="@drawable/iconcamera" />
+
+    <Button
+        android:id="@+id/btnCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tirar Foto"
+        android:textColor="@color/branco"
+        android:backgroundTint="@color/cinzaEscuro"
+        android:layout_marginBottom="12dp"/>
+
+    <Button
+        android:id="@+id/btnGaleria"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Escolher da Galeria"
+        android:textColor="@color/branco"
+        android:backgroundTint="@color/cinzaEscuro"
+        />
+
+</LinearLayout>
