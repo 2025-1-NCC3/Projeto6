@@ -65,6 +65,10 @@
 
         <activity android:name=".NovidadesActivity" />
 
+        <activity android:name=".CorridaPass" />
+
+        <activity android:name=".CorridaFinalPass" />
+
 
         <activity
             android:name=".MainActivity"
