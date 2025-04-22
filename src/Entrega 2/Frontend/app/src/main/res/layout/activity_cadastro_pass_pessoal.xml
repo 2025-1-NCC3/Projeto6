@@ -13,101 +13,139 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
-        android:layout_margin="16dp"
-        app:srcCompat="@drawable/iconarrow"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/txtTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CADASTRO PASSAGEIRO"
-        android:textSize="30sp"
-        android:textColor="@color/preto"
-        android:fontFamily="@font/inter_18pt_black"
-        android:layout_marginTop="24dp"
-        app:layout_constraintTop_toBottomOf="@id/imgSetaVoltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.03"
+        app:srcCompat="@drawable/iconarrow" />
 
     <TextView
-        android:id="@+id/txtSubtitulo"
+        android:id="@+id/txtTituloCadastroPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1. Informações pessoais"
+        android:text="@string/appTxtTituloPass"
+        android:textSize="30sp"
+        android:fontFamily="@font/inter_18pt_black"
+        android:textColor="@color/preto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
+
+    <TextView
+        android:id="@+id/txtSubtituloCadastroPass1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_18pt_black"
+        android:text="@string/appTxtSubTitulo1"
         android:textSize="23sp"
         android:textColor="@color/preto"
-        android:fontFamily="@font/inter_18pt_black"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.25" />
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_height="415dp"
         android:orientation="vertical"
-        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtSubtitulo">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6">
 
-        <EditText
-            android:id="@+id/etNome"
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/caixa_edit_text"
-            android:hint="@string/appTxtHintNome"
-            android:padding="12dp" />
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etSobrenome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/caixa_edit_text"
-            android:hint="@string/appTxtHintSobrenome"
-            android:padding="12dp" />
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/caixa_edit_text"
+                android:ems="10"
+                android:hint="@string/appTxtHintNome"
+                android:inputType="text"
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/etSobrenome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/caixa_edit_text"
+                android:ems="10"
+                android:hint="@string/appTxtHintSobrenome"
+                android:inputType="text"
+                android:padding="12dp" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/etCPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
+            android:ems="10"
             android:hint="@string/appTxtHintCpf"
+            android:inputType="text"
             android:padding="12dp" />
 
         <EditText
             android:id="@+id/etDataNascimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
+            android:ems="10"
             android:hint="@string/appTxtHintDataNasc"
+            android:inputType="text"
             android:padding="12dp" />
 
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
+            android:ems="10"
             android:hint="@string/appTxtHintEmail"
+            android:inputType="text"
             android:padding="12dp" />
 
         <EditText
             android:id="@+id/etTelefone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
+            android:ems="10"
             android:hint="@string/appTxtHintTel"
+            android:inputType="phone"
             android:padding="12dp" />
 
         <EditText
             android:id="@+id/etEndereco"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
+            android:ems="10"
             android:hint="@string/appTxtHintEndereco"
+            android:inputType="text"
             android:padding="12dp" />
     </LinearLayout>
 
@@ -115,19 +153,18 @@
         android:id="@+id/btnSeguinte"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="57dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginBottom="68dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:backgroundTint="@color/cinzaEscuro"
         android:fontFamily="@font/inter_18pt_black"
-        android:onClick="seguinteSenha"
         android:text="@string/appBtnSeguinte"
         android:textColor="@color/branco"
         android:textSize="25sp"
+        android:onClick="seguinteSenha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.93" />
 </androidx.constraintlayout.widget.ConstraintLayout>

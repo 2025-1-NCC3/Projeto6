@@ -12,12 +12,14 @@
     <string name="appTxtHintSenha">Senha</string>
 
     <!--Tela de cadastro-->
-    <string name="appTxtTitulo">CADASTRO MOTORISTA</string>
+    <string name="appTxtTituloMoto">CADASTRO MOTORISTA</string>
+    <string name="appTxtTituloPass">CADASTRO PASSAGEIRO</string>
     <string name="appTxtSubTitulo1">1. Informações pessoais</string>
     <string name="appTxtSubTitulo2">2. Informações do carro</string>
-    <string name="appTxtSubTitulo3">3. Criação de senha</string>
-    <string name="appTxtSubTitulo4">4. Foto de perfil (selfie)</string>
-
+    <string name="appTxtSubTitulo3Pass">2. Criação de senha</string>
+    <string name="appTxtSubTitulo3Moto">3. Criação de senha</string>
+    <string name="appTxtSubTitulo4Moto">4. Foto de perfil</string>
+    <string name="appTxtSubTitulo4Pass">3. Foto de perfil</string>
 
     <string name="appTxtHintNome">Nome</string>
     <string name="appTxtHintSobrenome">Sobrenome</string>
@@ -37,7 +39,6 @@
     <string name="appTxtHintCrieSenha">Crie uma senha</string>
     <string name="appTxtHintConfirmaSenha">Confirme sua senha</string>
 
-    <!--Botões adicionais-->
-    <string name="appBtnLogin">LOGIN</string>
-
+    <string name="appBtnTirarFoto">Tire uma foto</string>
+    <string name="appBtnEscolherFoto">Escolha uma foto</string>
 </resources>

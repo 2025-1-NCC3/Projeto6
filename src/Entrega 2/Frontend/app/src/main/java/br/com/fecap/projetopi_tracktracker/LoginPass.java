@@ -29,6 +29,11 @@ public class LoginPass extends AppCompatActivity {
         });
     }
 
+    public void cadastro(View view){
+        Intent intent = new Intent(this, CadastroPassPessoal.class);
+        startActivity(intent);
+    }
+
     public void voltar(View view){
         finish();
     }
