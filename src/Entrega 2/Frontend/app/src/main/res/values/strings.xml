@@ -7,6 +7,7 @@
 
     <!--Tela login-->
     <string name="appBtnSeguinte">SEGUINTE</string>
+    <string name="appBtnLogin">LOGIN</string>
     <string name="appTxtCadastro">Não possui conta? Cadastre-se já!</string>
     <string name="appTxtHintEmail">E-mail</string>
     <string name="appTxtHintSenha">Senha</string>

@@ -7,19 +7,23 @@
     android:background="@color/cinzaClaro">
 
     <!-- Mapa ou imagem representando a rota -->
+
+    <!-- Informações do motorista -->
+
     <ImageView
         android:id="@+id/imgMapaCorrida"
-        android:layout_width="491dp"
-        android:layout_height="524dp"
+        android:layout_width="488dp"
+        android:layout_height="678dp"
         android:layout_marginBottom="4dp"
         android:scaleType="centerCrop"
         android:src="@drawable/corrida"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.142" />
 
-    <!-- Informações do motorista -->
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"

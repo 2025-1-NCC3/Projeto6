@@ -164,5 +164,11 @@ public void voltar(View view){
         bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
         return stream.toByteArray();
     }
+
+    public void seguinteLogin(View view){
+        Intent intent = new Intent(this, LoginMoto.class);
+        finish();
+        startActivity(intent);
+    }
 }
 

@@ -148,5 +148,10 @@ public class CadastroPassFoto extends AppCompatActivity {
         return stream.toByteArray();
     }
 
+    public void seguinteLogin(View view){
+        Intent intent = new Intent(this, LoginPass.class);
+        finish();
+        startActivity(intent);
+    }
 
 }
