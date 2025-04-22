@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".CadastroMotoSenha">
+    tools:context=".CadastroPassPessoal">
 
     <ImageView
         android:id="@+id/imgSetaVoltar"
@@ -22,10 +22,10 @@
         app:srcCompat="@drawable/iconarrow" />
 
     <TextView
-        android:id="@+id/txtTituloCadastroMoto"
+        android:id="@+id/txtTituloCadastroPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTituloMoto"
+        android:text="@string/appTxtTituloPass"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"
@@ -37,11 +37,11 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtituloCadastroMoto3"
+        android:id="@+id/txtSubtituloCadastroPass1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
-        android:text="@string/appTxtSubTitulo3Moto"
+        android:text="@string/appTxtSubTitulo1"
         android:textSize="23sp"
         android:textColor="@color/preto"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,8 +52,7 @@
         app:layout_constraintVertical_bias="0.25" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="415dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,25 +63,88 @@
         app:layout_constraintVertical_bias="0.6">
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/caixa_edit_text"
+                android:ems="10"
+                android:hint="@string/appTxtHintNome"
+                android:inputType="text"
+                android:padding="12dp" />
+
+            <EditText
+                android:id="@+id/etSobrenome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/caixa_edit_text"
+                android:ems="10"
+                android:hint="@string/appTxtHintSobrenome"
+                android:inputType="text"
+                android:padding="12dp" />
+        </LinearLayout>
+
         <EditText
-            android:id="@+id/etSenha"
+            android:id="@+id/etCPF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
             android:ems="10"
-            android:hint="@string/appTxtHintCrieSenha"
+            android:hint="@string/appTxtHintCpf"
             android:inputType="text"
             android:padding="12dp" />
 
         <EditText
-            android:id="@+id/etConfirmaSenha"
+            android:id="@+id/etDataNascimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/caixa_edit_text"
             android:ems="10"
-            android:hint="@string/appTxtHintConfirmaSenha"
+            android:hint="@string/appTxtHintDataNasc"
+            android:inputType="text"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/caixa_edit_text"
+            android:ems="10"
+            android:hint="@string/appTxtHintEmail"
+            android:inputType="text"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etTelefone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/caixa_edit_text"
+            android:ems="10"
+            android:hint="@string/appTxtHintTel"
+            android:inputType="phone"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etEndereco"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/caixa_edit_text"
+            android:ems="10"
+            android:hint="@string/appTxtHintEndereco"
             android:inputType="text"
             android:padding="12dp" />
 
@@ -99,7 +161,7 @@
         android:text="@string/appBtnSeguinte"
         android:textColor="@color/branco"
         android:textSize="25sp"
-        android:onClick="seguinteFoto"
+        android:onClick="seguinteSenha"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".CadastroMotoSenha">
+    tools:context=".CadastroPassSenha">
 
     <ImageView
         android:id="@+id/imgSetaVoltar"
@@ -22,10 +22,10 @@
         app:srcCompat="@drawable/iconarrow" />
 
     <TextView
-        android:id="@+id/txtTituloCadastroMoto"
+        android:id="@+id/txtTituloCadastroPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTituloMoto"
+        android:text="@string/appTxtTituloPass"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"
@@ -37,11 +37,11 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtituloCadastroMoto3"
+        android:id="@+id/txtSubtituloCadastroPass2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
-        android:text="@string/appTxtSubTitulo3Moto"
+        android:text="@string/appTxtSubTitulo3Pass"
         android:textSize="23sp"
         android:textColor="@color/preto"
         app:layout_constraintBottom_toBottomOf="parent"

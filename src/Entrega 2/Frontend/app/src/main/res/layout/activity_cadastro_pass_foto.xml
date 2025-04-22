@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".CadastroMotoSenha">
+    tools:context=".CadastroPassFoto">
 
     <ImageView
         android:id="@+id/imgSetaVoltar"
@@ -22,7 +22,7 @@
         app:srcCompat="@drawable/iconarrow" />
 
     <TextView
-        android:id="@+id/txtTituloCadastroMoto"
+        android:id="@+id/txtTituloCadastroPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/appTxtTituloMoto"
@@ -37,11 +37,11 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtituloCadastroMoto3"
+        android:id="@+id/txtSubtituloCadastroPass3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
-        android:text="@string/appTxtSubTitulo3Moto"
+        android:text="@string/appTxtSubTitulo4Moto"
         android:textSize="23sp"
         android:textColor="@color/preto"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,27 +64,52 @@
         app:layout_constraintVertical_bias="0.6">
 
 
-        <EditText
-            android:id="@+id/etSenha"
+        <ImageView
+            android:id="@+id/imgPreview"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/caixa_edit_text"
-            android:ems="10"
-            android:hint="@string/appTxtHintCrieSenha"
-            android:inputType="text"
-            android:padding="12dp" />
+            android:layout_height="300dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/icon_arredondado"
+            android:scaleType="center"
+            app:srcCompat="@drawable/iconcamera" />
 
-        <EditText
-            android:id="@+id/etConfirmaSenha"
+        <Button
+            android:id="@+id/btnCamera"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@drawable/caixa_edit_text"
-            android:ems="10"
-            android:hint="@string/appTxtHintConfirmaSenha"
-            android:inputType="text"
-            android:padding="12dp" />
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:backgroundTint="@color/cinzaEscuro"
+            android:fontFamily="@font/inter_18pt_black"
+            android:text="@string/appBtnTirarFoto"
+            android:textColor="@color/branco"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.93" />
+
+        <Button
+            android:id="@+id/btnGaleria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:backgroundTint="@color/cinzaEscuro"
+            android:fontFamily="@font/inter_18pt_black"
+            android:text="@string/appBtnEscolherFoto"
+            android:textColor="@color/branco"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.93" />
 
     </LinearLayout>
 
@@ -99,7 +124,6 @@
         android:text="@string/appBtnSeguinte"
         android:textColor="@color/branco"
         android:textSize="25sp"
-        android:onClick="seguinteFoto"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

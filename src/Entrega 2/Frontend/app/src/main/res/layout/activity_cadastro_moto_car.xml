@@ -9,7 +9,7 @@
     tools:context=".CadastroMotoCar">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgSetaVoltar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="voltar"
@@ -25,7 +25,7 @@
         android:id="@+id/txtTituloCadastroMoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTitulo"
+        android:text="@string/appTxtTituloMoto"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtitulo2CadastroMoto"
+        android:id="@+id/txtSubtituloCadastroMoto2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"

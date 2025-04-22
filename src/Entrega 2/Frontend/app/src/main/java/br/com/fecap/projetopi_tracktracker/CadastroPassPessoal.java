@@ -11,7 +11,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class CadastroMotoPessoal extends AppCompatActivity {
+public class CadastroPassPessoal extends AppCompatActivity {
+
 
     private EditText etNome, etSobrenome, etCPF, etDataNascimento, etEmail, etTelefone, etEndereco;
 
@@ -21,9 +22,8 @@ public class CadastroMotoPessoal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_cadastro_pass_pessoal);
 
-        // Vinculando os campos
-        setContentView(R.layout.activity_cadastro_moto_pessoal);
         etNome = findViewById(R.id.etNome);
         etSobrenome = findViewById(R.id.etSobrenome);
         etCPF = findViewById(R.id.etCPF);
@@ -34,9 +34,9 @@ public class CadastroMotoPessoal extends AppCompatActivity {
 
     }
 
-    public void seguinteCarro(View view){
+    public void seguinteSenha(View view){
 
-        // Captura dos dados digitados
+        // salvamento nas strings
         nome = etNome.getText().toString().trim();
         sobrenome = etSobrenome.getText().toString().trim();
         cpf = etCPF.getText().toString().trim();
@@ -45,8 +45,7 @@ public class CadastroMotoPessoal extends AppCompatActivity {
         telefone = etTelefone.getText().toString().trim();
         endereco = etEndereco.getText().toString().trim();
 
-        // Envio dos dados para próxima tela
-        Intent intent = new Intent(this, CadastroMotoCar.class);
+        Intent intent = new Intent(this, CadastroPassSenha.class);
         intent.putExtra("nome", nome);
         intent.putExtra("sobrenome", sobrenome);
         intent.putExtra("cpf", cpf);
@@ -60,5 +59,4 @@ public class CadastroMotoPessoal extends AppCompatActivity {
     public void voltar(View view){
         finish();
     }
-
 }
