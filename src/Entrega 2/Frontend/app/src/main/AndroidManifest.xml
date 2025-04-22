@@ -13,6 +13,18 @@
         android:theme="@style/Theme.ProjetoPITrackTracker"
         tools:targetApi="31">
         <activity
+            android:name=".ViagemConcluida"
+            android:exported="false" />
+        <activity
+            android:name=".PreViagem"
+            android:exported="false" />
+        <activity
+            android:name=".ViagemEncontrada"
+            android:exported="false" />
+        <activity
+            android:name=".HomeMoto"
+            android:exported="false" />
+        <activity
             android:name=".CadastroPassFoto"
             android:exported="false" />
         <activity
@@ -20,6 +32,12 @@
             android:exported="false" />
         <activity
             android:name=".CadastroPassSenha"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroPassSenha"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroPassPessoal"
             android:exported="false" />
         <activity
             android:name=".CadastroPassPessoal"
@@ -49,32 +67,17 @@
             android:name=".CadastroMotoSelfie"
             android:exported="false" />
         <activity
-            android:name=".CadastroPassPessoal"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroPassSenha"
-            android:exported="false" />
-
-        <activity
             android:name=".CadastroPassSelfie"
             android:exported="false" />
-
         <activity
             android:name=".HomePassageiro"
             android:exported="false" />
-
         <activity android:name=".NovidadesActivity" />
-
         <activity android:name=".CorridaPass" />
-
         <activity android:name=".CorridaFinalPass" />
-
-
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
