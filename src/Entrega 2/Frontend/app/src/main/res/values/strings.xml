@@ -25,7 +25,6 @@
     <string name="appTxtHintSobrenome">Sobrenome</string>
     <string name="appTxtHintCpf">CPF</string>
     <string name="appTxtHintDataNasc">Data de Nascimento</string>
-    <!--    <string name="appTxtHintEmail">E-mail</string>-->
     <string name="appTxtHintTel">Telefone</string>
     <string name="appTxtHintEndereco">Endereço (Bairro, Rua - número)</string>
 
