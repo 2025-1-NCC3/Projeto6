@@ -22,6 +22,7 @@ public class CadastroMotoPessoal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
 
+        // Vinculando os campos
         setContentView(R.layout.activity_cadastro_moto_pessoal);
         etNome = findViewById(R.id.etNome);
         etSobrenome = findViewById(R.id.etSobrenome);
@@ -35,6 +36,7 @@ public class CadastroMotoPessoal extends AppCompatActivity {
 
     public void seguinteCarro(View view){
 
+        // Captura dos dados digitados
         nome = etNome.getText().toString().trim();
         sobrenome = etSobrenome.getText().toString().trim();
         cpf = etCPF.getText().toString().trim();
@@ -43,6 +45,7 @@ public class CadastroMotoPessoal extends AppCompatActivity {
         telefone = etTelefone.getText().toString().trim();
         endereco = etEndereco.getText().toString().trim();
 
+        // Envio dos dados para próxima tela
         Intent intent = new Intent(this, CadastroMotoCar.class);
         intent.putExtra("nome", nome);
         intent.putExtra("sobrenome", sobrenome);

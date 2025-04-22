@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class CadastroPassSenha extends AppCompatActivity {
 
-    private EditText etSenha;
+    private EditText etSenha, etConfirmaSenha;
     private String senha;
 
     //infos da tela anterior
@@ -26,6 +27,7 @@ public class CadastroPassSenha extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro_pass_senha);
 
         etSenha = findViewById(R.id.etSenha);
+        etConfirmaSenha = findViewById(R.id.etConfirmaSenha);
 
         // Recuperando os dados da ultima tela
         nome = getIntent().getStringExtra("nome");
@@ -40,7 +42,15 @@ public class CadastroPassSenha extends AppCompatActivity {
 
     public void seguinteFoto(View view){
 
+        String senhaDigitada = etSenha.getText().toString();
+        String confirmaSenha = etConfirmaSenha.getText().toString();
         senha = etSenha.getText().toString().trim();
+
+        if (!senhaDigitada.equals(confirmaSenha)) {
+            Toast.makeText(this, "As senhas não coincidem!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         Intent intent = new Intent(this, CadastroPassFoto.class);
         intent.putExtra("senha", senha);

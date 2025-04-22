@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,18 +18,46 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.ByteArrayOutputStream;
+
 public class CadastroMotoFoto extends AppCompatActivity {
+
+    //dados anteriores
+    private String nome, sobrenome, cpf, dataNasc, email, telefone, endereco, senha;
+    private String cnh, marca, modelo, ano, placa, categoria;
 
     private static final int pedirCamera = 100;
     private static final int pedirGaleria = 101;
     private static final int pedirPermissoes = 102;
 
+    private Bitmap imagemSelecionada;
+
     ImageView imagePreview;
+
+    // Dados do motorista recebidos das telas anteriores
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_moto_foto);
+
+        Intent intent = getIntent();
+
+        nome = intent.getStringExtra("nome");
+        sobrenome = intent.getStringExtra("sobrenome");
+        cpf = intent.getStringExtra("cpf");
+        dataNasc = intent.getStringExtra("dataNasc");
+        email = intent.getStringExtra("email");
+        telefone = intent.getStringExtra("telefone");
+        endereco = intent.getStringExtra("endereco");
+        senha = intent.getStringExtra("senha");
+
+        cnh = intent.getStringExtra("cnh");
+        marca = intent.getStringExtra("marca");
+        modelo = intent.getStringExtra("modelo");
+        ano = intent.getStringExtra("ano");
+        placa = intent.getStringExtra("placa");
+        categoria = intent.getStringExtra("categoria");
 
         imagePreview = findViewById(R.id.imgPreview);
         Button btnCamera = findViewById(R.id.btnCamera);
@@ -76,13 +105,64 @@ public class CadastroMotoFoto extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK && data != null) {
             if (requestCode == pedirCamera) {
                 Bitmap photo = (Bitmap) data.getExtras().get("data");
-                imagePreview.setImageBitmap(photo); // mostra imagem tirada
+                imagePreview.setImageBitmap(photo);
+                imagemSelecionada = photo; // <- aqui salva a imagem
             } else if (requestCode == pedirGaleria) {
                 Uri selectedImage = data.getData();
-                imagePreview.setImageURI(selectedImage); // mostra imagem da galeria
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                    imagePreview.setImageBitmap(bitmap);
+                    imagemSelecionada = bitmap; // <- aqui também salva a imagem
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "Erro ao carregar imagem", Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             Toast.makeText(this, "Nenhuma imagem selecionada", Toast.LENGTH_SHORT).show();
         }
     }
+public void voltar(View view){
+    finish();
 }
+
+    public class UsuarioComImagem {
+        public String nome, sobrenome, cpf, dataNasc, email, telefone, endereco, senha;
+        public String cnh, marca, modelo, ano, placa, categoria;
+        public byte[] imagem;
+    }
+
+    public CadastroMotoFoto.UsuarioComImagem getDadosParaInserir() {
+        if (imagemSelecionada == null) {
+            Toast.makeText(this, "Imagem ainda não selecionada!", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        CadastroMotoFoto.UsuarioComImagem usuario = new CadastroMotoFoto.UsuarioComImagem();
+        usuario.nome = nome;
+        usuario.sobrenome = sobrenome;
+        usuario.cpf = cpf;
+        usuario.dataNasc = dataNasc;
+        usuario.email = email;
+        usuario.telefone = telefone;
+        usuario.endereco = endereco;
+        usuario.senha = senha;
+
+        usuario.cnh = cnh;
+        usuario.marca = marca;
+        usuario.modelo = modelo;
+        usuario.ano = ano;
+        usuario.placa = placa;
+        usuario.categoria = categoria;
+        usuario.imagem = bitmapParaBytes(imagemSelecionada);
+
+        return usuario;
+    }
+
+    private byte[] bitmapParaBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
+    }
+}
+

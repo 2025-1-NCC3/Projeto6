@@ -18,13 +18,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import java.io.ByteArrayOutputStream;
+
 public class CadastroPassFoto extends AppCompatActivity {
 
+    //dados anteriores
     private String nome, sobrenome, cpf, dataNasc, email, telefone, endereco, senha;
 
     private static final int pedirCamera = 100;
     private static final int pedirGaleria = 101;
     private static final int pedirPermissoes = 102;
+    private Bitmap imagemSelecionada;
 
     ImageView imagePreview;
 
@@ -90,17 +94,59 @@ public class CadastroPassFoto extends AppCompatActivity {
         if (resultCode == Activity.RESULT_OK && data != null) {
             if (requestCode == pedirCamera) {
                 Bitmap photo = (Bitmap) data.getExtras().get("data");
-                imagePreview.setImageBitmap(photo); // mostra imagem tirada
+                imagePreview.setImageBitmap(photo);
+                imagemSelecionada = photo; // <- aqui salva a imagem
             } else if (requestCode == pedirGaleria) {
                 Uri selectedImage = data.getData();
-                imagePreview.setImageURI(selectedImage); // mostra imagem da galeria
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), selectedImage);
+                    imagePreview.setImageBitmap(bitmap);
+                    imagemSelecionada = bitmap; // <- aqui também salva a imagem
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "Erro ao carregar imagem", Toast.LENGTH_SHORT).show();
+                }
             }
         } else {
             Toast.makeText(this, "Nenhuma imagem selecionada", Toast.LENGTH_SHORT).show();
         }
     }
 
+
     public void voltar(View view){
         finish();
     }
+
+    public class UsuarioComImagem {
+        public String nome, sobrenome, cpf, dataNasc, email, telefone, endereco, senha;
+        public byte[] imagem;
+    }
+
+    public UsuarioComImagem getDadosParaInserir() {
+        if (imagemSelecionada == null) {
+            Toast.makeText(this, "Imagem ainda não selecionada!", Toast.LENGTH_SHORT).show();
+            return null;
+        }
+
+        UsuarioComImagem usuario = new UsuarioComImagem();
+        usuario.nome = nome;
+        usuario.sobrenome = sobrenome;
+        usuario.cpf = cpf;
+        usuario.dataNasc = dataNasc;
+        usuario.email = email;
+        usuario.telefone = telefone;
+        usuario.endereco = endereco;
+        usuario.senha = senha;
+        usuario.imagem = bitmapParaBytes(imagemSelecionada);
+
+        return usuario;
+    }
+
+    private byte[] bitmapParaBytes(Bitmap bitmap) {
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        return stream.toByteArray();
+    }
+
+
 }
