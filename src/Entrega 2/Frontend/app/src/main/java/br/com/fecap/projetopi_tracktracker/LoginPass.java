@@ -22,6 +22,11 @@ public class LoginPass extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        findViewById(R.id.btnSeguinte).setOnClickListener( v-> {
+            Intent intent = new Intent(LoginPass.this, HomePassageiro.class);
+            startActivity(intent);
+            finish();
+        });
     }
 
     public void cadastro(View view){
@@ -31,6 +36,11 @@ public class LoginPass extends AppCompatActivity {
 
     public void voltar(View view){
         finish();
+    }
+
+    public void cadastro(View view){
+        Intent intent = new Intent(this, CadastroPassPessoal.class);
+        startActivity(intent);
     }
 
     @Override

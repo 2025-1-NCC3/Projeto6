@@ -3,6 +3,7 @@ package br.com.fecap.projetopi_tracktracker;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
@@ -12,7 +13,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class CadastroPassPessoal extends AppCompatActivity {
-
 
     private EditText etNome, etSobrenome, etCPF, etDataNascimento, etEmail, etTelefone, etEndereco;
 
