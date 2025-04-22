@@ -90,7 +90,8 @@
             android:textColor="@color/branco"
             android:textSize="14sp"
             android:textStyle="italic"
-            />
+            android:onClick="cadastro" />
+
 
         <Button
             android:id="@+id/btnSeguinte"
@@ -101,6 +102,7 @@
             android:textColor="@color/preto"
             android:textSize="25sp"
             android:layout_marginTop="50dp"/>
+
 
 
     </LinearLayout>

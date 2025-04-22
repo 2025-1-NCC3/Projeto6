@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="TextDestino">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/preto</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:fontFamily">@font/inter_18pt_black</item>
+    </style>
+
+</resources>
