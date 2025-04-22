@@ -38,11 +38,6 @@ public class LoginPass extends AppCompatActivity {
         finish();
     }
 
-    public void cadastro(View view){
-        Intent intent = new Intent(this, CadastroPassPessoal.class);
-        startActivity(intent);
-    }
-
     @Override
     protected void onStart(){
         super.onStart();

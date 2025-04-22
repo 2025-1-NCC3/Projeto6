@@ -22,10 +22,10 @@
         app:srcCompat="@drawable/iconarrow" />
 
     <TextView
-        android:id="@+id/txtTituloCadastroMoto"
+        android:id="@+id/txtTituloCadastroPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/appTxtTituloMoto"
+        android:text="@string/appTxtTituloPass"
         android:textSize="30sp"
         android:fontFamily="@font/inter_18pt_black"
         android:textColor="@color/preto"
@@ -37,11 +37,11 @@
         app:layout_constraintVertical_bias="0.17" />
 
     <TextView
-        android:id="@+id/txtSubtituloCadastroMoto4"
+        android:id="@+id/txtSubtituloCadastroPass3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/inter_18pt_black"
-        android:text="@string/appTxtSubTitulo4Moto"
+        android:text="@string/appTxtSubTitulo4Pass"
         android:textSize="23sp"
         android:textColor="@color/preto"
         app:layout_constraintBottom_toBottomOf="parent"
