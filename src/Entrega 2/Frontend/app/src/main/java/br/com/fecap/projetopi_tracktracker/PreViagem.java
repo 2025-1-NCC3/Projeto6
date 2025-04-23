@@ -1,6 +1,8 @@
 package br.com.fecap.projetopi_tracktracker;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +22,16 @@ public class PreViagem extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+    }
+    public void ViagemFilmagem(View view) {
+        Intent intent = new Intent(this, ViagemEncontrada.class);
+        startActivity(intent);
+        finish();
+    }
+    public void ViagemCancelada(View view) {
+        Intent intent = new Intent(this, HomeMoto.class);
+        startActivity(intent);
+        finish();
     }
 }

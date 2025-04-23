@@ -18,7 +18,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/fotodefaultmapa" />
+        app:srcCompat="@drawable/corrida" />
 
     <TextView
         android:id="@+id/textView"
@@ -68,6 +68,7 @@
         android:layout_height="110dp"
         android:backgroundTint="@color/azulClaro"
         android:fontFamily="@font/inter_18pt_black"
+        android:onClick="ViagemAceita"
         android:text="@string/appBtnIniciar"
         android:textAlignment="center"
         android:textSize="16sp"

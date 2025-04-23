@@ -7,4 +7,103 @@
     android:layout_height="match_parent"
     tools:context=".ViagemEncontrada">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#E0E0E0"
+        android:padding="16dp">
+
+        <!-- Mapa ou imagem com rota -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/banner_mapa_demo"
+            android:contentDescription="Mapa com rota concluída" />
+
+        <!-- Card com pergunta -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            android:background="#DADADA"
+            android:padding="16dp"
+            android:elevation="10dp"
+            android:backgroundTint="#DADADA"
+            android:layout_gravity="bottom">
+
+            <!-- Título com ícone -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/iconcamera"
+                    android:contentDescription="Ícone vídeo" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Áudio e Vídeo"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <!-- Texto de pergunta -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Você deseja iniciar a gravação de "
+                android:textSize="14sp"
+                android:layout_marginTop="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="vídeo e áudio nesta corrida?"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#000000" />
+
+            <!-- Botões -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:orientation="horizontal"
+                android:gravity="bottom"
+                >
+
+                <Button
+                    android:id="@+id/btnSim"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#9E9E9E"
+                    android:onClick="ViagemFinalizada"
+                    android:text="SIM"
+                    android:textColor="#FFF" />
+
+                <Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/btnNao"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:backgroundTint="#D32F2F"
+                    android:onClick="ViagemFinalizada"
+                    android:text=">>> NÃO >>>"
+                    android:textColor="#FFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
