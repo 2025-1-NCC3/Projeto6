@@ -11,144 +11,165 @@
     <!-- Botão Voltar -->
 
     <!-- Perfil do motorista -->
-    <Button
-        android:id="@+id/btnVoltar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/design_default_color_error"
-        android:onClick="voltarHome"
-        android:text="voltar"
-        android:textColor="@color/branco"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Avaliações -->
 
     <LinearLayout
         android:id="@+id/layoutPerfil"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_width="413dp"
+        android:layout_height="275dp"
         android:background="@color/preto"
-        android:orientation="vertical"
         android:gravity="center"
+        android:orientation="vertical"
         android:padding="12dp"
-        app:layout_constraintTop_toBottomOf="@id/btnVoltar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
         <ImageView
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:src="@drawable/iconperson"
-            android:contentDescription="Foto do motorista" />
+            android:contentDescription="Foto do motorista"
+            android:src="@drawable/iconperson" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Afonso da Cunha"
             android:textColor="@color/branco"
-            android:textStyle="bold"
-            android:textSize="16sp"/>
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView android:text="1.969"
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/branco"/>
-            <TextView android:text=" viagens concluídas"
+                android:text="1.969"
+                android:textColor="@color/branco" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/branco"/>
+                android:text=" viagens concluídas"
+                android:textColor="@color/branco" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView android:text="5"
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/branco"/>
-            <TextView android:text=" estrelas"
+                android:text="5"
+                android:textColor="@color/branco" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/branco"/>
-            <TextView android:text=" | 10 anos"
+                android:text=" estrelas"
+                android:textColor="@color/branco" />
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/branco"/>
+                android:text=" | 10 anos"
+                android:textColor="@color/branco" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Avaliações -->
+    <!-- Banner final -->
     <LinearLayout
         android:id="@+id/layoutAvaliacao"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp"
-        app:layout_constraintTop_toBottomOf="@id/layoutPerfil"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/layoutPerfil"
+        app:layout_constraintVertical_bias="0.114">
 
         <!-- Avaliações por critério -->
         <TextView
-            android:text="Conforto"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginTop="8dp"
+            android:text="Conforto"
+            android:textStyle="bold" />
+
         <RatingBar
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
-            android:rating="4" style="?android:attr/ratingBarStyleSmall"
-            />
+            android:rating="4" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Segurança"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:textStyle="bold" />
+
+        <RatingBar
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
-        <RatingBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:rating="5" style="?android:attr/ratingBarStyleSmall" />
+            android:numStars="5"
+            android:rating="5" />
 
         <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="Cuidado do veículo"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:textStyle="bold" />
+
+        <RatingBar
+            style="?android:attr/ratingBarStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
-        <RatingBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:rating="5" style="?android:attr/ratingBarStyleSmall" />
+            android:numStars="5"
+            android:rating="5" />
 
         <TextView
-            android:text="Conversa boa"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
-        <RatingBar android:layout_width="wrap_content" android:layout_height="wrap_content" android:numStars="5" android:rating="4" style="?android:attr/ratingBarStyleSmall" />
+            android:layout_marginTop="8dp"
+            android:text="Conversa boa"
+            android:textStyle="bold" />
+
+        <RatingBar
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:rating="4" />
     </LinearLayout>
 
-    <!-- Banner final -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/bannerSeguranca"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="369dp"
+        android:layout_height="177dp"
         android:layout_margin="16dp"
         android:background="@color/cinzaEscuro"
         android:padding="12dp"
-        app:layout_constraintTop_toBottomOf="@id/layoutAvaliacao"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/layoutAvaliacao"
+        app:layout_constraintVertical_bias="0.129">
 
         <TextView
             android:id="@+id/txtBanner"
@@ -158,20 +179,20 @@
             android:textColor="@color/branco"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btnSaibaMais"
             app:layout_constraintEnd_toStartOf="@+id/imgMapa"
-            app:layout_constraintBottom_toTopOf="@+id/btnSaibaMais"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btnSaibaMais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/branco"
             android:text="Saiba Mais"
             android:textColor="@color/preto"
-            android:backgroundTint="@color/branco"
-            app:layout_constraintTop_toBottomOf="@id/txtBanner"
-            app:layout_constraintStart_toStartOf="@id/txtBanner"/>
+            app:layout_constraintStart_toStartOf="@id/txtBanner"
+            app:layout_constraintTop_toBottomOf="@id/txtBanner" />
 
         <ImageView
             android:id="@+id/imgMapa"
@@ -179,8 +200,8 @@
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_mapa_demo"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
