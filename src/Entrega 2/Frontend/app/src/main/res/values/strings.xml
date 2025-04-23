@@ -41,4 +41,10 @@
 
     <string name="appBtnTirarFoto">Tire uma foto</string>
     <string name="appBtnEscolherFoto">Escolha uma foto</string>
+
+    <!--Home motorista-->
+    <string name="appTxtStatusOf">Você está offline</string>
+    <string name="appTxtStatusOn">Você está online</string>
+    <string name="appBtnIniciar">Iniciar</string>
+    <string name="appTxtDinheiroDefault">---</string>
 </resources>
