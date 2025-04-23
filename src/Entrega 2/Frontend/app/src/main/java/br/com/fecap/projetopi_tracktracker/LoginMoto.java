@@ -26,7 +26,7 @@ public class LoginMoto extends AppCompatActivity {
 
         // Redirecionamento ao clicar no botão SEGUINTE
         findViewById(R.id.btnSeguinte).setOnClickListener(v -> {
-            Intent intent = new Intent(LoginMoto.this, HomePassageiro.class); // ou HomePassageiro.class
+            Intent intent = new Intent(LoginMoto.this, HomeMoto.class); // ou HomePassageiro.class
             startActivity(intent);
             finish();
         });
