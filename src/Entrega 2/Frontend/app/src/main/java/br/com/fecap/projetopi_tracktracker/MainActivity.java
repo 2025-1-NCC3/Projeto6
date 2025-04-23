@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
-
+//Acesso a telas de login
     public void loginMoto(View view){
         Intent intentMoto = new Intent(this, LoginMoto.class);
         startActivity(intentMoto);
