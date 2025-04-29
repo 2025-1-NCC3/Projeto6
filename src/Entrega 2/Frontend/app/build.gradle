@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'br.com.fecap.projetopi_tracktracker'
+    namespace 'br.fecap.pi.TrackTracker'
     compileSdk 35
 
     defaultConfig {
