@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.fecap.pi.TrackTracker.PreViagem">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E0E0E0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Mapa simulado -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner_mapa_demo"
+                android:contentDescription="Mapa da corrida" />
+
+            <!-- Informações do motorista e corrida -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:gravity="center_vertical">
+
+                <!-- Avatar -->
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/iconperson"
+
+                    android:contentDescription="Foto do motorista" />
+
+                <!-- Nome e avaliação -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="José da Silva"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⭐ 4.8 / 4.5"
+                        android:textSize="14sp"
+                        android:textColor="#555" />
+                </LinearLayout>
+
+                <!-- Preço -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="R$16,30"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+            <!-- Endereços -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 R. Lino Coutinho, 963 - Ipiranga, São Paulo"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📍 Parque da Independência - Ipiranga, São Paulo"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <!-- Botão aceitar -->
+            <Button
+                android:id="@+id/btnAceitar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#000000"
+                android:onClick="ViagemFilmagem"
+                android:text=">>ACEITAR>>"
+                android:textColor="#FFF" />
+
+            <!-- Botão sair -->
+            <Button
+                android:id="@+id/btnSair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#D32F2F"
+                android:onClick="ViagemCancelada"
+                android:text="SAIR"
+                android:textColor="#FFF" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
