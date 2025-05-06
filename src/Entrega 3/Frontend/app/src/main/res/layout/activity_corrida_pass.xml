@@ -38,7 +38,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afonso da Cunha"
+            android:text="@string/appTxtnomepass"
             android:textColor="@color/preto"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Chevrolet Onix Cinza • ABC1D23"
+            android:text="@string/appTxtinfoveiculo"
             android:textColor="@color/preto"
             android:textSize="14sp" />
 
@@ -58,7 +58,7 @@
             android:layout_marginTop="16dp"
             android:background="@color/preto"
             android:padding="8dp"
-            android:text="🎥 Áudio e Vídeo"
+            android:text="@string/appBtnauidoevideo"
             android:textAlignment="center"
             android:textColor="@color/branco"
             android:textStyle="bold" />

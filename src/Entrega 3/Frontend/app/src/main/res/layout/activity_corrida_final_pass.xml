@@ -8,12 +8,6 @@
     android:background="@color/cinzaClaro"
     tools:context="br.fecap.pi.TrackTracker.CorridaFinalPass">
 
-    <!-- Botão Voltar -->
-
-    <!-- Perfil do motorista -->
-
-    <!-- Avaliações -->
-
     <LinearLayout
         android:id="@+id/layoutPerfil"
         android:layout_width="413dp"
@@ -38,7 +32,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Afonso da Cunha"
+            android:text="@string/appTxtnomepass"
             android:textColor="@color/branco"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -51,13 +45,13 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.969"
+                android:text="@string/appTxtsalario"
                 android:textColor="@color/branco" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" viagens concluídas"
+                android:text="@string/appTxtviagens"
                 android:textColor="@color/branco" />
         </LinearLayout>
 
@@ -69,19 +63,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
+                android:text="@string/appQtdEstrelas"
                 android:textColor="@color/branco" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" estrelas"
+                android:text="@string/appTxtEstrelas"
                 android:textColor="@color/branco" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" | 10 anos"
+                android:text="@string/appTxtano"
                 android:textColor="@color/branco" />
         </LinearLayout>
     </LinearLayout>
@@ -105,7 +99,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Conforto"
+            android:text="@string/appTxtavaliacaoconforto"
             android:textStyle="bold" />
 
         <RatingBar
@@ -119,7 +113,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Segurança"
+            android:text="@string/appTxtavaliacaoseguranca"
             android:textStyle="bold" />
 
         <RatingBar
@@ -133,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Cuidado do veículo"
+            android:text="@string/appTxtavaliacaocuidadoveiculo"
             android:textStyle="bold" />
 
         <RatingBar
@@ -147,7 +141,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Conversa boa"
+            android:text="@string/appTxtconversa"
             android:textStyle="bold" />
 
         <RatingBar
@@ -189,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/branco"
-            android:text="Saiba Mais"
+            android:text="@string/appBtnsaibamais"
             android:textColor="@color/preto"
             app:layout_constraintStart_toStartOf="@id/txtBanner"
             app:layout_constraintTop_toBottomOf="@id/txtBanner" />

@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.fecap.pi.TrackTracker.PreViagem">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -38,8 +39,7 @@
                     android:layout_width="64dp"
                     android:layout_height="64dp"
                     android:src="@drawable/iconperson"
-
-                    android:contentDescription="Foto do motorista" />
+                    android:contentDescription="@string/appTxtNomeMotoristaPre" />
 
                 <!-- Nome e avaliação -->
                 <LinearLayout
@@ -52,14 +52,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="José da Silva"
+                        android:text="@string/appTxtNomeMotoristaPre"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="⭐ 4.8 / 4.5"
+                        android:text="@string/appTxtAvaliacaoMotorista"
                         android:textSize="14sp"
                         android:textColor="#555" />
                 </LinearLayout>
@@ -68,7 +68,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="R$16,30"
+                    android:text="@string/appTxtPrecoCorrida"
                     android:textSize="18sp"
                     android:textStyle="bold"
                     android:textColor="#000" />
@@ -84,13 +84,13 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📍 R. Lino Coutinho, 963 - Ipiranga, São Paulo"
+                    android:text="@string/appTxtEnderecoOrigemPre"
                     android:textSize="14sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="📍 Parque da Independência - Ipiranga, São Paulo"
+                    android:text="@string/appTxtEnderecoDestinoPre"
                     android:textSize="14sp" />
             </LinearLayout>
 
@@ -102,7 +102,7 @@
                 android:layout_marginTop="24dp"
                 android:backgroundTint="#000000"
                 android:onClick="ViagemFilmagem"
-                android:text=">>ACEITAR>>"
+                android:text="@string/appBtnAceitar"
                 android:textColor="#FFF" />
 
             <!-- Botão sair -->
@@ -113,7 +113,7 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="#D32F2F"
                 android:onClick="ViagemCancelada"
-                android:text="SAIR"
+                android:text="@string/appBtnSair"
                 android:textColor="#FFF" />
         </LinearLayout>
     </ScrollView>
