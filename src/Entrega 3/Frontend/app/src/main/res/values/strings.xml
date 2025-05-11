@@ -46,5 +46,5 @@
     <string name="appTxtStatusOf">Você está offline</string>
     <string name="appTxtStatusOn">Você está online</string>
     <string name="appBtnIniciar">Iniciar</string>
-    <string name="appTxtDinheiroDefault">---</string>
+    <string name="appTxtDinheiroDefault">R$00.00</string>
 </resources>
