@@ -46,7 +46,7 @@
     <string name="appTxtStatusOf">Você está offline</string>
     <string name="appTxtStatusOn">Você está online</string>
     <string name="appBtnIniciar">Iniciar</string>
-    <string name="appTxtDinheiroDefault">---</string>
+    <string name="appTxtDinheiroDefault">R$00.00</string>
 
     <!--corrida_final_pass-->
     <string name="appTxtnomepass">Afonso da Cunha</string>
@@ -117,7 +117,4 @@
     <string name="appBannerSeguranca">Conheça nossas\nnovas funções de segurança</string>
     <string name="appBtnSaibaMais">Saiba Mais</string>
     <string name="appDescricaoMapa">Imagem do mapa da viagem</string>
-
-
-
 </resources>

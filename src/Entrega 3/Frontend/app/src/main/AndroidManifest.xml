@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <application
         android:allowBackup="true"
+        android:usesCleartextTraffic="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
@@ -12,6 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjetoPITrackTracker"
         tools:targetApi="31">
+
         <activity
             android:name="br.fecap.pi.TrackTracker.ViagemConcluida"
             android:exported="false" />
@@ -64,10 +70,10 @@
             android:name=".Login"
             android:exported="false" />
         <activity
-            android:name=".CadastroMotoSelfie"
+            android:name=".CadastroMotoFoto"
             android:exported="false" />
         <activity
-            android:name=".CadastroPassSelfie"
+            android:name=".CadastroPassFoto"
             android:exported="false" />
         <activity
             android:name="br.fecap.pi.TrackTracker.HomePassageiro"
