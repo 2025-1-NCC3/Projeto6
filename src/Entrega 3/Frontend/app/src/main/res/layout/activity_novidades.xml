@@ -7,6 +7,7 @@
     android:background="@color/cinzaClaro"
     tools:context="br.fecap.pi.TrackTracker.NovidadesActivity">
 
+    <!-- Barra superior -->
     <LinearLayout
         android:id="@+id/topBar"
         android:layout_width="0dp"
@@ -23,20 +24,21 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:src="@drawable/iconarrow"
-            android:contentDescription="Voltar"
+            android:contentDescription="@string/appTxtTituloNovidades"
             android:onClick="finish" />
 
         <TextView
             android:id="@+id/txtTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Novidades"
+            android:text="@string/appTxtTituloNovidades"
             android:textSize="20sp"
             android:textColor="@color/preto"
             android:layout_marginStart="16dp"
             android:textStyle="bold" />
     </LinearLayout>
 
+    <!-- Conteúdo principal -->
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -69,7 +71,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_avaliacao"
-                        android:contentDescription="Ícone avaliação" />
+                        android:contentDescription="@string/appTituloAvaliacao" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -81,7 +83,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nova avaliação atual"
+                            android:text="@string/appTituloAvaliacao"
                             android:textColor="@color/preto"
                             android:textStyle="bold"
                             android:textSize="16sp" />
@@ -90,7 +92,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Gostaríamos de apresentar uma nova forma de avaliar quem está do outro lado. A nova avaliação atual mostra uma média das últimas 20 avaliações recebidas, garantindo mais transparência."
+                            android:text="@string/appTextoAvaliacao"
                             android:textColor="@color/preto"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -115,7 +117,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_mapa"
-                        android:contentDescription="Ícone rota" />
+                        android:contentDescription="@string/appTituloRota" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -127,7 +129,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alertas de distanciamento da rota"
+                            android:text="@string/appTituloRota"
                             android:textColor="@color/preto"
                             android:textStyle="bold"
                             android:textSize="16sp" />
@@ -136,7 +138,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="O app alertará se o motorista se desviar da rota e enviará notificações aos contatos de emergência, quando necessário."
+                            android:text="@string/appTextoRota"
                             android:textColor="@color/preto"
                             android:textSize="14sp" />
                     </LinearLayout>
@@ -160,7 +162,7 @@
                         android:layout_width="24dp"
                         android:layout_height="24dp"
                         android:src="@drawable/ic_camera_alt"
-                        android:contentDescription="Ícone câmera" />
+                        android:contentDescription="@string/appTituloAudioVideo" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -172,7 +174,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Áudio e Vídeo"
+                            android:text="@string/appTituloAudioVideo"
                             android:textColor="@color/preto"
                             android:textStyle="bold"
                             android:textSize="16sp" />
@@ -181,7 +183,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="4dp"
-                            android:text="Agora, será obrigatória a gravação de áudio e vídeo para motoristas, e de áudio para passageiros durante a viagem. Mais segurança para todos."
+                            android:text="@string/appTextoAudioVideo"
                             android:textColor="@color/preto"
                             android:textSize="14sp" />
                     </LinearLayout>

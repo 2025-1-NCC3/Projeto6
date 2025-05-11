@@ -20,7 +20,7 @@
             android:layout_height="300dp"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_mapa_demo"
-            android:contentDescription="Mapa com rota concluída" />
+            android:contentDescription="@string/appTxtGravacaoPergunta2" />
 
         <!-- Card com pergunta -->
         <LinearLayout
@@ -45,12 +45,12 @@
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:src="@drawable/iconcamera"
-                    android:contentDescription="Ícone vídeo" />
+                    android:contentDescription="@string/appTxtGravacaoTitulo" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Áudio e Vídeo"
+                    android:text="@string/appTxtGravacaoTitulo"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:layout_marginStart="8dp" />
@@ -60,14 +60,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Você deseja iniciar a gravação de "
+                android:text="@string/appTxtGravacaoPergunta1"
                 android:textSize="14sp"
                 android:layout_marginTop="8dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="vídeo e áudio nesta corrida?"
+                android:text="@string/appTxtGravacaoPergunta2"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="#000000" />
@@ -77,8 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:orientation="horizontal"
-                android:gravity="bottom"
-                >
+                android:gravity="bottom">
 
                 <Button
                     android:id="@+id/btnSim"
@@ -87,7 +86,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="#9E9E9E"
                     android:onClick="ViagemFinalizada"
-                    android:text="SIM"
+                    android:text="@string/appBtnSim"
                     android:textColor="#FFF" />
 
                 <Space
@@ -101,7 +100,7 @@
                     android:layout_weight="1"
                     android:backgroundTint="#D32F2F"
                     android:onClick="ViagemFinalizada"
-                    android:text=">>> NÃO >>>"
+                    android:text="@string/appBtnNao"
                     android:textColor="#FFF" />
             </LinearLayout>
         </LinearLayout>

@@ -47,4 +47,74 @@
     <string name="appTxtStatusOn">Você está online</string>
     <string name="appBtnIniciar">Iniciar</string>
     <string name="appTxtDinheiroDefault">R$00.00</string>
+
+    <!--corrida_final_pass-->
+    <string name="appTxtnomepass">Afonso da Cunha</string>
+    <string name="appTxtsalario">1.9190 R$</string>
+    <string name="appTxtviagens"> | 1000 viagens</string>
+    <string name="appQtdEstrelas">5</string>
+    <string name="appTxtEstrelas">Estrelas</string>
+    <string name="appTxtano">| 10 anos</string>
+    <string name="appTxtavaliacaoconforto">avaliação do conforto</string>
+    <string name="appTxtavaliacaoseguranca">avaliação da segurança</string>
+    <string name="appTxtavaliacaocuidadoveiculo">cuidado veiculo</string>
+    <string name="appTxtconversa">conversa boa</string>
+    <string name="appBtnsaibamais">Saiba mais</string>
+
+    <!--corrida_pass e activity_viagem_encontrada-->
+    <string name="appTxtinfoveiculo">Chevrolet Onix Cinza • ABC1D23</string>
+    <string name="appBtnauidoevideo">🎥 Áudio e Vídeo</string>
+    <string name="appTxtGravacaoTitulo">Áudio e Vídeo</string>
+    <string name="appTxtGravacaoPergunta1">Você deseja iniciar a gravação de</string>
+    <string name="appTxtGravacaoPergunta2">vídeo e áudio nesta corrida?</string>
+    <string name="appBtnSim">SIM</string>
+    <string name="appBtnNao">>>> NÃO >>></string>
+
+    <!-- Tela activity_viagem_concluida -->
+    <string name="appTxtFeedbackTitulo">FEEDBACK</string>
+    <string name="appTxtNomeMotorista">Afonso da Cunha</string>
+    <string name="appTxtEnderecoOrigem">R. Lino Coutinho, 983 - Ipiranga, São Paulo\nSP: 04287-001</string>
+    <string name="appTxtEnderecoDestino">Parque da Independência - Ipiranga,\nSão Paulo - SP: 04263-000</string>
+    <string name="appTxtDuracaoCorrida">DURAÇÃO: 4BMIN</string>
+    <string name="appHintComentario">Deixar comentário</string>
+    <string name="appBtnEnviar">ENVIAR</string>
+    <string name="appBtnAgoraNao">agora não</string>
+
+    <string name="appTxtNomeMotoristaPre">José da Silva</string>
+    <string name="appTxtAvaliacaoMotorista">⭐ 4.8 / 4.5</string>
+    <string name="appTxtPrecoCorrida">R$16,30</string>
+    <string name="appTxtEnderecoOrigemPre">📍 R. Lino Coutinho, 963 - Ipiranga, São Paulo</string>
+    <string name="appTxtEnderecoDestinoPre">📍 Parque da Independência - Ipiranga, São Paulo</string>
+    <string name="appBtnAceitar">>>ACEITAR>></string>
+    <string name="appBtnSair">SAIR</string>
+
+    <!-- NovidadesActivity -->
+    <string name="appTxtTituloNovidades">Novidades</string>
+
+    <!-- Card 1 - Avaliação -->
+    <string name="appTituloAvaliacao">Nova avaliação atual</string>
+    <string name="appTextoAvaliacao">Gostaríamos de apresentar uma nova forma de avaliar quem está
+        do outro lado. A nova avaliação atual mostra uma média das últimas 20 avaliações recebidas,
+        garantindo mais transparência.</string>
+
+    <!-- Card 2 - Rota -->
+    <string name="appTituloRota">Alertas de distanciamento da rota</string>
+    <string name="appTextoRota">O app alertará se o motorista se desviar da rota e enviará
+        notificações aos contatos de emergência, quando necessário.</string>
+
+    <!-- Card 3 - Áudio e Vídeo -->
+    <string name="appTituloAudioVideo">Áudio e Vídeo</string>
+    <string name="appTextoAudioVideo">Agora, será obrigatória a gravação de áudio e vídeo
+        para motoristas, e de áudio para passageiros durante a viagem. Mais segurança para todos.</string>
+
+    <!-- Tela HomePassageiro -->
+    <string name="appTituloViagens">Viagens</string>
+    <string name="appHintParaOnde">Para onde?</string>
+    <string name="appDestino1">McDonalds - Av. Angélica 1752</string>
+    <string name="appDestino2">🏞️ Parque da Juventude - Av. Cruzeiro</string>
+    <string name="appDestino3">🏫 FECAP - Liberdade, 532</string>
+    <string name="appTituloSugestoes">Sugestões</string>
+    <string name="appBannerSeguranca">Conheça nossas\nnovas funções de segurança</string>
+    <string name="appBtnSaibaMais">Saiba Mais</string>
+    <string name="appDescricaoMapa">Imagem do mapa da viagem</string>
 </resources>

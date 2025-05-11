@@ -142,12 +142,16 @@
             android:id="@+id/imgMapa"
             android:layout_width="100dp"
             android:layout_height="match_parent"
-            android:onClick="abrirNovidades"
+            android:layout_marginEnd="8dp"
             android:scaleType="centerCrop"
             android:src="@drawable/banner_mapa_demo"
+            android:onClick="abrirNovidades"
+            android:contentDescription="@string/appDescricaoMapa"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
