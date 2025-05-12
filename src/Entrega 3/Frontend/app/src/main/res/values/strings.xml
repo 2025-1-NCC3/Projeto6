@@ -107,7 +107,7 @@
     <string name="appTextoAudioVideo">Agora, será obrigatória a gravação de áudio e vídeo
         para motoristas, e de áudio para passageiros durante a viagem. Mais segurança para todos.</string>
 
-<!--tela corrida passageiro-->
+    <!--tela corrida passageiro-->
     <string name="appBtnLimpar">Limpar</string>
     <string name="appBtnConfirmar">Confirmar</string>
     <string name="appBtnCancelar">Cancelar</string>

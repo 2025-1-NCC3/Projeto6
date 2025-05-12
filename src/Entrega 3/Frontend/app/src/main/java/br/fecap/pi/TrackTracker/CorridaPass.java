@@ -231,6 +231,8 @@ public class CorridaPass extends AppCompatActivity {
 
                             btnConfirmar.setEnabled(true);
                             btnConfirmar.setBackgroundTintList(ContextCompat.getColorStateList(CorridaPass.this, R.color.azulClaro));
+                            btnConfirmar.setTextColor(ContextCompat.getColorStateList(CorridaPass.this, android.R.color.white));
+
                         });
 
                     } catch (JSONException e) {
