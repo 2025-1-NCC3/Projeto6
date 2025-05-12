@@ -4,6 +4,8 @@
     <color name="cinzaEscuro">#1E1E1E</color>
     <color name="cinzaHint">#808080</color>
     <color name="cinzaClaro">#e3e3e3</color>
+    <color name="cinza">#494949</color>
     <color name="branco">#ffffff</color>
     <color name="azulClaro">#007AF2</color>
+    <color name="vermelho">#A30B0B</color>
 </resources>
