@@ -62,4 +62,16 @@
         app:layout_constraintVertical_bias="0.8"
         app:layout_constraintHorizontal_bias="1.0" />
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="704dp"
+        android:layout_height="699dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.083"
+        app:srcCompat="@drawable/ttlogoremovebgpreview" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
