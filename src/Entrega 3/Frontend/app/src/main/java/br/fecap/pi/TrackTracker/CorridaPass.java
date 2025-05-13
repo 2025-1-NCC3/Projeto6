@@ -126,6 +126,23 @@ public class CorridaPass extends AppCompatActivity {
             finish();                   // Finaliza atividade
         });
 
+        btnConfirmar.setOnClickListener(v -> {
+            if (localAtual != null && pontoCentralizado != null) {
+                Intent intent = new Intent(CorridaPass.this, CorridaPassEmAndamento.class);
+
+                intent.putExtra("lat_origem", localAtual.getLatitude());
+                intent.putExtra("lon_origem", localAtual.getLongitude());
+                intent.putExtra("lat_destino", pontoCentralizado.getLatitude());
+                intent.putExtra("lon_destino", pontoCentralizado.getLongitude());
+                intent.putExtra("tempo", tvTempo.getText().toString());
+                intent.putExtra("distancia", tvDistancia.getText().toString());
+                intent.putExtra("preco", tvPreco.getText().toString());
+
+                startActivity(intent);
+                finish();
+            }
+        });
+
     }
 
     private void buscarEndereco(String endereco) {
@@ -267,7 +284,6 @@ public class CorridaPass extends AppCompatActivity {
         agendarRecentralizacao();
     }
 
-
     private void mostrarLocalizacaoAtual() {
         pontoCentralizado = localAtual;
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
@@ -357,6 +373,8 @@ public class CorridaPass extends AppCompatActivity {
         super.onPause();
         cancelarRecentralizacao();
     }
+
+
 
 
 
