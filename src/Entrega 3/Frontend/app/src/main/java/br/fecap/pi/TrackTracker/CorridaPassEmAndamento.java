@@ -17,6 +17,7 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.util.Log;
@@ -240,12 +241,12 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
             return;
         }
         try{
-            File audioDir = new File(getExternalFilesDir(null), "AudioGravacoes");
+            File audioDir = new File(getExternalFilesDir(Environment.DIRECTORY_MUSIC), "Gravacoes");
             if(!audioDir.exists()){
                 audioDir.mkdirs();
             }
 
-            audioFilePath = audioDir.getAbsolutePath() + "/gravacao_" + System.currentTimeMillis() + ".3gp";
+            audioFilePath = new File(audioDir, "gravacao_" + System.currentTimeMillis() + ".3gp").getAbsolutePath();
 
             mediaRecorder = new MediaRecorder();
             mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
