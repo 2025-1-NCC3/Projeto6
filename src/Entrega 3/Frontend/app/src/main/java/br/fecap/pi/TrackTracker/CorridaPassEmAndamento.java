@@ -1,24 +1,37 @@
 package br.fecap.pi.TrackTracker;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.graphics.Color;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.media.AudioAttributes;
+import android.media.MediaRecorder;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.core.app.NotificationCompat;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -30,6 +43,7 @@ import org.osmdroid.views.MapView;
 import org.osmdroid.views.overlay.Marker;
 import org.osmdroid.views.overlay.Polyline;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
@@ -39,15 +53,21 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
     private IMapController mapController;
     private GeoPoint destino;
     private Marker marcadorUsuario;
-
     private TextView txtDistancia, txtTempo;
-    private Button btnCentralizar, btnConcluir, btnDesvio, btnChegarFinal;
+    private Button btnCentralizar, btnConcluir, btnDesvio20, btnDesvio30, btnDesvio50, btnChegarFinal;
     private ImageView imgMicrofone;
-
     private LocationManager locationManager;
     private LocationListener locationListener;
     private static final String GRAPHHOPPER_API_KEY = "0f35c7de-f736-442f-8f23-c6abd354a5f9";
     private Polyline rotaAtual;
+    private double distanciaInicial = 0;
+    private boolean rastreamentoAtivo = true;
+    private boolean notificou20 = false;
+    private boolean notificou30 = false;
+    private boolean notificou50 = false;
+    private String numeroEmergencia = "11951443638"; //número gabriel;
+    private MediaRecorder mediaRecorder;
+    private String audioFilePath;
     private static final int LOCATION_REQUEST_CODE = 1001;
 
     @Override
@@ -99,9 +119,46 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         txtTempo = findViewById(R.id.txtTempo);
         btnCentralizar = findViewById(R.id.btnCentralizar);
         btnConcluir = findViewById(R.id.btnConcluirCorr);
-        btnDesvio = findViewById(R.id.btnAtivaDetec);
+        btnDesvio20 = findViewById(R.id.btnAtivaDetec20);
+        btnDesvio30 = findViewById(R.id.btnAtivaDetec30);
+        btnDesvio50 = findViewById(R.id.btnAtivaDetec50);
         btnChegarFinal = findViewById(R.id.btnChegarNoFinal);
         imgMicrofone = findViewById(R.id.imgMicroIc);
+
+        btnDesvio20.setOnClickListener(v -> {
+            if (!notificou20) {
+                notificou20 = true;
+                rastreamentoAtivo = false;
+                exibirNotificacao("Atenção", "Simulação: Pequeno desvio de rota detectado.");
+            }
+        });
+
+        btnDesvio30.setOnClickListener(v -> {
+            if (!notificou30) {
+                notificou30 = true;
+                rastreamentoAtivo = false;
+                vibrarAlerta();
+                exibirNotificacao("Alerta de Segurança", "Simulação: Você está se afastando da rota.");
+            }
+        });
+
+        btnDesvio50.setOnClickListener(v -> {
+            if (!notificou50) {
+                notificou50 = true;
+                rastreamentoAtivo = false;
+                vibrarAlerta();
+                enviarSmsEmergencia(); // Lembre de ativar a permissão no Manifest e em tempo de execução
+                exibirNotificacao("Alerta Máximo", "Simulação: Desvio crítico de rota detectado!");
+            }
+        });
+
+        btnConcluir.setAlpha(1.0f); // Garante visibilidade
+        btnConcluir.setOnClickListener(btn -> {
+            stopAudioRecording();
+            android.content.Intent intent = new android.content.Intent(CorridaPassEmAndamento.this, CorridaFinalPass.class);
+            startActivity(intent);
+            finish(); // Encerra a tela atual para evitar voltar com "voltar"
+        });
 
         // Exibir informações
         txtTempo.setText(tempo);
@@ -143,6 +200,10 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
             iniciarLocalizacao();
         }
 
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 2002);
+        }
+
         // Centralizar no usuário
         btnCentralizar.setOnClickListener(v -> {
             if (marcadorUsuario != null) {
@@ -152,16 +213,69 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
 
         // Botão chegar no final
         btnChegarFinal.setOnClickListener(v -> {
+            rastreamentoAtivo = false;
+
             if (destino != null && marcadorUsuario != null) {
                 marcadorUsuario.setPosition(destino);
                 mapController.setCenter(destino);
                 atualizarTempoEDistancia(destino);
-                btnConcluir.setEnabled(true);
-                btnConcluir.setTextColor(getColor(R.color.preto));
-                btnConcluir.setBackgroundTintList(getColorStateList(R.color.branco));
+                mapController.setZoom(18.0);
+            }
+
+            // 1. Remover rota do mapa
+            if (rotaAtual != null) {
+                mapView.getOverlays().remove(rotaAtual);
+                rotaAtual = null;
+                mapView.invalidate();
             }
         });
 
+        startAudioRecording();
+
+    }
+
+    private void startAudioRecording(){
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 2000);
+            return;
+        }
+        try{
+            File audioDir = new File(getExternalFilesDir(null), "AudioGravacoes");
+            if(!audioDir.exists()){
+                audioDir.mkdirs();
+            }
+
+            audioFilePath = audioDir.getAbsolutePath() + "/gravacao_" + System.currentTimeMillis() + ".3gp";
+
+            mediaRecorder = new MediaRecorder();
+            mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+            mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+            mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+            mediaRecorder.setOutputFile(audioFilePath);
+            mediaRecorder.prepare();
+            mediaRecorder.start();
+
+            imgMicrofone.setBackgroundColor(ContextCompat.getColor(this, R.color.verde));
+
+            Log.d("Audio", "Gravação iniciada em: " + audioFilePath);
+        }catch (IOException e){
+            e.printStackTrace();
+            Toast.makeText(this, "Erro ao iniciar a gravação de áudio", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void stopAudioRecording() {
+        if (mediaRecorder != null) {
+            try {
+                mediaRecorder.stop();
+                mediaRecorder.release();
+                mediaRecorder = null;
+                Toast.makeText(this, "Gravação finalizada: " + audioFilePath, Toast.LENGTH_SHORT).show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        imgMicrofone.setBackgroundColor(ContextCompat.getColor(this, R.color.cinzaHint));
     }
 
     private void calcularERemostrarRotaComApi(GeoPoint origem, GeoPoint destino){
@@ -210,6 +324,9 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
                            mapView.getOverlays().add(rotaAtual);
                            mapView.invalidate();
                        });
+
+                       distanciaInicial = path.getDouble("distance");
+
                    } catch (org.json.JSONException e){
                        runOnUiThread(()-> android.widget.Toast.makeText(CorridaPassEmAndamento.this, "Erro ao processar rota", Toast.LENGTH_SHORT).show());
                    }
@@ -244,11 +361,12 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
                 new com.google.android.gms.location.LocationCallback() {
                     @Override
                     public void onLocationResult(com.google.android.gms.location.LocationResult locationResult) {
-                        if (locationResult != null) {
+                        if (locationResult != null && rastreamentoAtivo) {
                             Location novaLocalizacao = locationResult.getLastLocation();
                             GeoPoint novaPosicao = new GeoPoint(novaLocalizacao.getLatitude(), novaLocalizacao.getLongitude());
                             marcadorUsuario.setPosition(novaPosicao);
                             mapView.invalidate();
+                            atualizarTempoEDistancia(novaPosicao);
                         }
                     }
                 },
@@ -304,7 +422,28 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
                         runOnUiThread(() -> {
                             txtDistancia.setText(distanciaStr);
                             txtTempo.setText(tempoStr);
+
+                            if (distanciaMetros <= 30) {
+                                btnConcluir.setEnabled(true);
+                                btnConcluir.setTextColor(getColor(R.color.preto));
+                                btnConcluir.setBackgroundTintList(getColorStateList(R.color.branco));
+                            }
                         });
+
+                        double porcentagemDesvio = (distanciaMetros - distanciaInicial) / distanciaInicial;
+
+                        if (porcentagemDesvio >= 0.5 && !notificou50) {
+                            notificou50 = true;
+                            enviarSmsEmergencia();
+                            exibirNotificacao("Alerta Máximo", "Desvio crítico de rota detectado!");
+                        } else if (porcentagemDesvio >= 0.3 && !notificou30) {
+                            notificou30 = true;
+                            vibrarAlerta();
+                            exibirNotificacao("Alerta de Segurança", "Você está se afastando da rota.");
+                        } else if (porcentagemDesvio >= 0.2 && !notificou20) {
+                            notificou20 = true;
+                            exibirNotificacao("Atenção", "Pequeno desvio de rota detectado.");
+                        }
 
                     } catch (Exception e) {
                         runOnUiThread(() -> Toast.makeText(CorridaPassEmAndamento.this, "Erro ao processar tempo/distância", Toast.LENGTH_SHORT).show());
@@ -325,8 +464,76 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == LOCATION_REQUEST_CODE && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             iniciarLocalizacao();
-        } else {
-            // Permissão negada - tratar o caso
+        } else if (requestCode == 2002 && grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permissão de SMS concedida", Toast.LENGTH_SHORT).show();
+        } else if (requestCode == 2002) {
+            Toast.makeText(this, "Permissão de SMS negada", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void exibirNotificacao(String titulo, String mensagem) {
+        String channelId = "desvio_channel_id";
+
+        // Criar canal de notificação se necessário
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            CharSequence name = "Desvio de rota";
+            String description = "Notificações relacionadas a desvios de rota";
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+
+            NotificationChannel channel = new NotificationChannel(channelId, name, importance);
+            channel.setDescription(description);
+            channel.enableLights(true);
+            channel.enableVibration(true);
+
+            AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                    .build();
+            Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            channel.setSound(soundUri, audioAttributes);
+
+            NotificationManager notificationManager = getSystemService(NotificationManager.class);
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        // Verifica permissão para Android 13+
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 1001);
+            }
+            return;
+        }
+
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, channelId)
+                .setSmallIcon(android.R.drawable.ic_dialog_alert) // Ícone padrão do sistema
+                .setContentTitle(titulo)
+                .setContentText(mensagem)
+                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                .setAutoCancel(true)
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)); // Som
+
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+        notificationManager.notify(1, builder.build());
+    }
+
+    private void vibrarAlerta() {
+        Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            VibrationEffect efeito = VibrationEffect.createWaveform(new long[]{0, 600, 200, 600}, -1);
+            vibrator.vibrate(efeito);
+        } else {
+            vibrator.vibrate(new long[]{0, 600, 200, 600}, -1); // Padrão compatível com Android < 8
+        }
+    }
+
+    private void enviarSmsEmergencia() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this, "Permissão para SMS não concedida", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        android.telephony.SmsManager sms = android.telephony.SmsManager.getDefault();
+        String msg = "ALERTA: Desvio de rota acima de 50% detectado no trajeto.";
+        sms.sendTextMessage(numeroEmergencia, null, msg, null, null);
     }
 }

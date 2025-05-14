@@ -8,5 +8,7 @@
     <color name="branco">#ffffff</color>
     <color name="azulClaro">#007AF2</color>
     <color name="vermelho">#A30B0B</color>
+    <color name="amarelo">#DCBF04</color>
+    <color name="verde">#539301</color>
     <color name="laranja">#A3610B</color>
 </resources>
