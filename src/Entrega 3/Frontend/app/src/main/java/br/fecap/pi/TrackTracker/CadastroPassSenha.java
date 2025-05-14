@@ -69,3 +69,4 @@ public class CadastroPassSenha extends AppCompatActivity {
         finish();
     }
 }
+
