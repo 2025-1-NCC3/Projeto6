@@ -107,6 +107,14 @@
     <string name="appTextoAudioVideo">Agora, será obrigatória a gravação de áudio e vídeo
         para motoristas, e de áudio para passageiros durante a viagem. Mais segurança para todos.</string>
 
+    <!--tela corrida passageiro-->
+    <string name="appBtnLimpar">Limpar</string>
+    <string name="appBtnConfirmar">Confirmar</string>
+    <string name="appBtnCancelar">Cancelar</string>
+    <string name="appTxtDefaultPreco">R$00.00</string>
+    <string name="appTxtDefaultDistancia">00.0km</string>
+    <string name="appTxtDefaultTempo">00min</string>
+
     <!-- Tela HomePassageiro -->
     <string name="appTituloViagens">Viagens</string>
     <string name="appHintParaOnde">Para onde?</string>
