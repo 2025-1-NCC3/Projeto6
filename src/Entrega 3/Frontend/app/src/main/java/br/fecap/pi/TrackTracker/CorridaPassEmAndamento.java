@@ -205,12 +205,6 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 2002);
         }
 
-        // Centralizar no usuário
-        btnCentralizar.setOnClickListener(v -> {
-            if (marcadorUsuario != null) {
-                mapController.setCenter(marcadorUsuario.getPosition());
-            }
-        });
 
         // Botão chegar no final
         btnChegarFinal.setOnClickListener(v -> {
@@ -221,6 +215,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
                 mapController.setCenter(destino);
                 atualizarTempoEDistancia(destino);
                 mapController.setZoom(18.0);
+                locationManager.removeUpdates(locationListener);
             }
 
             // 1. Remover rota do mapa
@@ -302,9 +297,6 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
                        org.json.JSONObject json = new org.json.JSONObject(responseData);
                        org.json.JSONArray paths = json.getJSONArray("paths");
                        org.json.JSONObject path = paths.getJSONObject(0);
-
-                       double distanciaMetros = path.getDouble("distance");
-                       double duracaoSegundos = path.getDouble("time")/1000.0;
 
                        org.json.JSONArray points = path.getJSONObject("points").getJSONArray("coordinates");
 
