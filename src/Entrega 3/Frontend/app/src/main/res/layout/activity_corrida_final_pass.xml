@@ -8,10 +8,12 @@
     android:background="@color/cinzaClaro"
     tools:context="br.fecap.pi.TrackTracker.CorridaFinalPass">
 
+    <!-- Banner final -->
+
     <LinearLayout
         android:id="@+id/layoutPerfil"
-        android:layout_width="413dp"
-        android:layout_height="275dp"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
         android:background="@color/cinzaEscuro"
         android:gravity="center"
         android:orientation="vertical"
@@ -28,8 +30,7 @@
             android:layout_height="72dp"
             android:contentDescription="Foto do motorista"
             android:src="@drawable/iconperson"
-            app:tint="@color/branco"
-            />
+            app:tint="@color/branco" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -82,7 +83,22 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Banner final -->
+    <RatingBar
+        android:id="@+id/ratingBarSeg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:numStars="5"
+        android:progressTint="@color/amarelo"
+        android:rating="0"
+        android:stepSize="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.549" />
 
     <RatingBar
         android:id="@+id/ratingBarConf"
@@ -99,7 +115,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.475" />
+        app:layout_constraintVertical_bias="0.419" />
 
     <RatingBar
         android:id="@+id/ratingBarVeic"
@@ -116,7 +132,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733" />
+        app:layout_constraintVertical_bias="0.677" />
 
     <RatingBar
         android:id="@+id/ratingBarConv"
@@ -133,41 +149,7 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.861" />
-
-    <RatingBar
-        android:id="@+id/ratingBarSeg"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:numStars="5"
-        android:progressTint="@color/amarelo"
-        android:rating="0"
-        android:stepSize="0.5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.605" />
-
-    <TextView
-        android:id="@+id/txtAvaliacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:fontFamily="@font/inter_18pt_black"
-        android:text="Como você avalia esta viagem?"
-        android:textAlignment="center"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345" />
+        app:layout_constraintVertical_bias="0.805" />
 
     <TextView
         android:id="@+id/txtAvaliacaoConf"
@@ -178,13 +160,13 @@
         android:fontFamily="@font/inter_18pt_black"
         android:text="Conforto"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.420" />
+        app:layout_constraintVertical_bias="0.366" />
 
     <TextView
         android:id="@+id/txtAvaliacaoSeg"
@@ -195,13 +177,13 @@
         android:fontFamily="@font/inter_18pt_black"
         android:text="Segurança"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.545" />
+        app:layout_constraintVertical_bias="0.491" />
 
     <TextView
         android:id="@+id/txtAvaliacaoVeic"
@@ -212,13 +194,13 @@
         android:fontFamily="@font/inter_18pt_black"
         android:text="Condição do veículo"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.67" />
+        app:layout_constraintVertical_bias="0.615" />
 
     <TextView
         android:id="@+id/txtAvaliacaoConv"
@@ -229,13 +211,30 @@
         android:fontFamily="@font/inter_18pt_black"
         android:text="Conversa"
         android:textAlignment="center"
-        android:textSize="22sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.795" />
+        app:layout_constraintVertical_bias="0.741" />
+
+    <TextView
+        android:id="@+id/txtAvaliacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:fontFamily="@font/inter_18pt_black"
+        android:text="Como você avalia esta viagem?"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.282" />
 
     <Button
         android:id="@+id/btnEnviarAval"
@@ -250,5 +249,5 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.95" />
+        app:layout_constraintVertical_bias="0.920" />
 </androidx.constraintlayout.widget.ConstraintLayout>
