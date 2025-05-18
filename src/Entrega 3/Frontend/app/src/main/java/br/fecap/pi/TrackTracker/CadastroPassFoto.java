@@ -44,7 +44,7 @@ public class CadastroPassFoto extends AppCompatActivity {
         nome = intent.getStringExtra("nome");
         sobrenome = intent.getStringExtra("sobrenome");
         cpf = intent.getStringExtra("cpf");
-        dataNasc = intent.getStringExtra("dataNasc");
+        dataNasc = intent.getStringExtra("dataNasc"); // Note: backend expects DataNascimento
         email = intent.getStringExtra("email");
         telefone = intent.getStringExtra("telefone");
         endereco = intent.getStringExtra("endereco");
@@ -53,7 +53,7 @@ public class CadastroPassFoto extends AppCompatActivity {
         imagePreview = findViewById(R.id.imgPreview);
         Button btnCamera = findViewById(R.id.btnCamera);
         Button btnGaleria = findViewById(R.id.btnGaleria);
-
+        // Button btnFinalizar = findViewById(R.id.btnFinalizar); // Assuming you have a finalize button
 
         // Verifica e solicita permissões
         if (!checkPermissions()) {
@@ -73,6 +73,9 @@ public class CadastroPassFoto extends AppCompatActivity {
             Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
             startActivityForResult(galleryIntent, pedirGaleria);
         });
+
+        // Listener para o botão de finalizar cadastro (exemplo)
+        // btnFinalizar.setOnClickListener(view -> finalizarCadastro());
     }
 
     // Verifica se permissões já foram dadas
@@ -110,7 +113,7 @@ public class CadastroPassFoto extends AppCompatActivity {
                 }
             }
         } else {
-            Toast.makeText(this, "Nenhuma imagem selecionada", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "Nenhuma imagem selecionada", Toast.LENGTH_SHORT).show(); // User might not select one
         }
     }
 
@@ -119,6 +122,8 @@ public class CadastroPassFoto extends AppCompatActivity {
         finish();
     }
 
+    // Este método não será usado diretamente para a API, mas os dados são úteis
+    /*
     public class UsuarioComImagem {
         public String nome, sobrenome, cpf, dataNasc, email, telefone, endereco, senha;
         public byte[] imagem;
@@ -143,6 +148,7 @@ public class CadastroPassFoto extends AppCompatActivity {
 
         return usuario;
     }
+    */
 
     private byte[] bitmapParaBytes(Bitmap bitmap) {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -150,10 +156,25 @@ public class CadastroPassFoto extends AppCompatActivity {
         return stream.toByteArray();
     }
 
+    // Este método precisa ser modificado para chamar as APIs
     public void seguinteLogin(View view){
-        Intent intent = new Intent(this, LoginPass.class);
-        finish();
-        startActivity(intent);
+        // TODO: Implementar a lógica de chamada à API aqui
+        // 1. Validar se todos os dados textuais estão presentes (nome, senha, etc.)
+        // 2. Chamar a API /regp com os dados textuais.
+        // 3. Se sucesso, obter o ID do passageiro.
+        // 4. Se imagemSelecionada != null, chamar a API /passageiro/{id}/foto com a imagem.
+        // 5. Se tudo OK, ir para LoginPass.class
+
+        Toast.makeText(this, "Lógica de cadastro e upload de foto a ser implementada aqui.", Toast.LENGTH_LONG).show();
+
+        // Exemplo de navegação após sucesso:
+        // Intent intent = new Intent(this, LoginPass.class);
+        // finish();
+        // startActivity(intent);
     }
 
+    // Você precisará adicionar um método aqui para realizar o cadastro e upload
+    // Exemplo: private void finalizarCadastro() { ... }
+
 }
+
