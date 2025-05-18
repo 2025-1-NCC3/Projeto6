@@ -1,11 +1,11 @@
 package br.fecap.pi.TrackTracker;
 
+//importações
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.graphics.Color;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.location.LocationProvider;
 import android.media.AudioAttributes;
 import android.media.MediaRecorder;
 import android.media.RingtoneManager;
@@ -16,7 +16,6 @@ import android.os.Bundle;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.os.Bundle;
 import android.os.Environment;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
@@ -50,26 +49,34 @@ import java.util.*;
 
 public class CorridaPassEmAndamento extends AppCompatActivity {
 
+    // Componentes do mapa e controle
     private MapView mapView;
     private IMapController mapController;
-    private GeoPoint destino;
-    private Marker marcadorUsuario;
-    private TextView txtDistancia, txtTempo;
-    private Button btnCentralizar, btnConcluir, btnDesvio20, btnDesvio30, btnDesvio50, btnChegarFinal;
-    private ImageView imgMicrofone;
+
+    private GeoPoint destino; // Coordenada final da corrida
+    private Marker marcadorUsuario;// Marcador da posição atual do usuário
+    private TextView txtDistancia, txtTempo;// TextViews para tempo e distância
+    private Button btnCentralizar, btnConcluir, btnDesvio20, btnDesvio30, btnDesvio50, btnChegarFinal;// Botões da interface
+    private ImageView imgMicrofone;// Ícone do microfone
+
+    // Gerenciador e listener de localização
     private LocationManager locationManager;
     private LocationListener locationListener;
-    private static final String GRAPHHOPPER_API_KEY = "0f35c7de-f736-442f-8f23-c6abd354a5f9";
-    private Polyline rotaAtual;
-    private double distanciaInicial = 0;
-    private boolean rastreamentoAtivo = true;
+
+    private static final String GRAPHHOPPER_API_KEY = "0f35c7de-f736-442f-8f23-c6abd354a5f9";// Chave da API GraphHopper para rotas
+    private Polyline rotaAtual;// Linha da rota no mapa
+    private double distanciaInicial = 0;// Distância inicialmente calculada
+    private boolean rastreamentoAtivo = true;// Flag para ativar/desativar rastreamento
+
+    // Flags de controle de alertas por desvio
     private boolean notificou20 = false;
     private boolean notificou30 = false;
     private boolean notificou50 = false;
-    private String numeroEmergencia = "11951443638"; //número gabriel;
-    private MediaRecorder mediaRecorder;
-    private String audioFilePath;
-    private static final int LOCATION_REQUEST_CODE = 1001;
+
+    private String numeroEmergencia = "11951443638"; //número gabriel para emergência;
+    private MediaRecorder mediaRecorder;// Gravação de áudio
+    private String audioFilePath;//Caminho do arquivo da gravação
+    private static final int LOCATION_REQUEST_CODE = 1001; // Código de permissão para localização
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +237,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
 
     }
 
+    // Inicia a gravação de áudio, salvando o arquivo no armazenamento privado
     private void startAudioRecording(){
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 2000);
@@ -260,6 +268,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         }
     }
 
+    // Encerra a gravação de áudio e libera recursos
     private void stopAudioRecording() {
         if (mediaRecorder != null) {
             try {
@@ -274,6 +283,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         imgMicrofone.setBackgroundColor(ContextCompat.getColor(this, R.color.cinzaHint));
     }
 
+    // Calcula e desenha rota entre origem e destino usando a API do GraphHopper
     private void calcularERemostrarRotaComApi(GeoPoint origem, GeoPoint destino){
         String url = "https://graphhopper.com/api/1/route?point=" + origem.getLatitude() + "," + origem.getLongitude() +
                 "&point=" + destino.getLatitude() + "," + destino.getLongitude() +
@@ -328,16 +338,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
        });
     }
 
-    private void desenharRota(List<GeoPoint> pontosRota) {
-
-        Polyline linhaRota = new Polyline();
-        linhaRota.setPoints(pontosRota);
-        linhaRota.setColor(Color.BLUE);
-        linhaRota.setWidth(5f);
-        mapView.getOverlays().add(linhaRota);
-        mapView.invalidate();
-    }
-
+    // Inicia rastreamento contínuo da localização via FusedLocationProviderClient
     private void iniciarLocalizacaoTempoReal() {
         FusedLocationProviderClient locationClient = LocationServices.getFusedLocationProviderClient(this);
 
@@ -367,6 +368,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         );
     }
 
+    // Inicia atualização de localização pelo LocationManager padrão
     private void iniciarLocalizacao() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -375,12 +377,14 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 2, locationListener);
     }
 
+    // Interrompe as atualizações de localização
     private void pararLocalizacao() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             locationManager.removeUpdates(locationListener);
         }
     }
 
+    // Atualiza informações de tempo e distância até o destino, além de detectar desvios
     private void atualizarTempoEDistancia(GeoPoint posAtual) {
         if (destino == null) return;
 
@@ -464,6 +468,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         }
     }
 
+    // Exibe notificação personalizada com som e vibração (para alertas de segurança)
     private void exibirNotificacao(String titulo, String mensagem) {
         String channelId = "desvio_channel_id";
 
@@ -509,6 +514,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         notificationManager.notify(1, builder.build());
     }
 
+    // Vibra o celular com padrão de alerta
     private void vibrarAlerta() {
         Vibrator vibrator = (Vibrator) getSystemService(VIBRATOR_SERVICE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -519,6 +525,7 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         }
     }
 
+    // Envia SMS automático em caso de desvio crítico detectado
     private void enviarSmsEmergencia() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
             Toast.makeText(this, "Permissão para SMS não concedida", Toast.LENGTH_SHORT).show();
