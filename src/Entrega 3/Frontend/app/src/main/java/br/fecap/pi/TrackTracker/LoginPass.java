@@ -58,12 +58,23 @@ public class LoginPass extends AppCompatActivity {
 
         btnLogin.setOnClickListener(v -> {
             realizarLogin();
+
         });
+
     }
 
     private void realizarLogin() {
         String email = etEmail.getText().toString().trim();
         String senha = etSenha.getText().toString().trim();
+
+        if (email.equals("dev") && senha.equals("123")) {
+            Toast.makeText(this, "Login de desenvolvedor", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(LoginPass.this, HomePassageiro.class); // ou outra tela de teste
+            startActivity(intent);
+            finish();
+            return;
+        }
+
 
         if (email.isEmpty() || senha.isEmpty()) {
             Toast.makeText(this, "Por favor, preencha email e senha.", Toast.LENGTH_LONG).show();

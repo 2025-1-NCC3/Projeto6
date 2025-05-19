@@ -1,6 +1,11 @@
 package br.fecap.pi.TrackTracker;
 
 //importações
+import android.content.Intent;
+import android.view.SurfaceView;
+import android.view.SurfaceHolder;
+import android.hardware.Camera; // API antiga, como você está usando
+
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.graphics.Color;
@@ -47,7 +52,19 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+
+
 public class CorridaPassEmAndamento extends AppCompatActivity {
+
+    // gravação do video
+    private SurfaceView surfaceView;
+    private SurfaceHolder surfaceHolder;
+    private Button btnGravarVideo;
+    private MediaRecorder videoRecorder;
+    private android.hardware.Camera camera;
+    private boolean gravandoVideo = false;
+    private String videoPath;
+   ;
 
     // Componentes do mapa e controle
     private MapView mapView;
@@ -77,6 +94,8 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
     private MediaRecorder mediaRecorder;// Gravação de áudio
     private String audioFilePath;//Caminho do arquivo da gravação
     private static final int LOCATION_REQUEST_CODE = 1001; // Código de permissão para localização
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +151,27 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         btnDesvio50 = findViewById(R.id.btnAtivaDetec50);
         btnChegarFinal = findViewById(R.id.btnChegarNoFinal);
         imgMicrofone = findViewById(R.id.imgMicroIc);
+//
+        surfaceView = findViewById(R.id.surfaceView);
+        btnGravarVideo = findViewById(R.id.btnGravarVideo);
+        surfaceHolder = surfaceView.getHolder();
+        surfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
+
+        btnGravarVideo.setOnClickListener(v -> {
+            if (!gravandoVideo) {
+                startVideoRecording();
+            } else {
+                stopVideoRecording();
+            }
+        });
+
+        if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.P) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 3001);
+            }
+        }
+
+//
 
         btnDesvio20.setOnClickListener(v -> {
             if (!notificou20) {
@@ -236,6 +276,75 @@ public class CorridaPassEmAndamento extends AppCompatActivity {
         startAudioRecording();
 
     }
+//
+private void startVideoRecording() {
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO}, 3000);
+        return;
+    }
+
+    File videoDir = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES), "VideosCorrida");
+    if (!videoDir.exists()) videoDir.mkdirs();
+
+    videoPath = new File(videoDir, "video_" + System.currentTimeMillis() + ".mp4").getAbsolutePath();
+
+    camera = Camera.open(Camera.CameraInfo.CAMERA_FACING_FRONT);
+    camera.setDisplayOrientation(90);
+
+    try {
+        camera.unlock();
+
+        videoRecorder = new MediaRecorder();
+        videoRecorder.setCamera(camera);
+        videoRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        videoRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+        videoRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        videoRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
+        videoRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.H264);
+        videoRecorder.setOutputFile(videoPath);
+        videoRecorder.setPreviewDisplay(surfaceHolder.getSurface());
+        videoRecorder.setVideoFrameRate(30);
+        videoRecorder.setVideoSize(640, 480);
+        videoRecorder.setOrientationHint(90);
+        videoRecorder.prepare();
+        videoRecorder.start();
+
+        gravandoVideo = true;
+        btnGravarVideo.setText("Parar Vídeo");
+        Toast.makeText(this, "Gravação de vídeo iniciada", Toast.LENGTH_SHORT).show();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+        Toast.makeText(this, "Erro ao iniciar gravação de vídeo", Toast.LENGTH_SHORT).show();
+    }
+}
+
+    private void stopVideoRecording() {
+        if (videoRecorder != null && gravandoVideo) {
+            videoRecorder.stop();
+
+            // Atualiza a Galeria com o novo vídeo
+            Intent scanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            scanIntent.setData(Uri.fromFile(new File(videoPath)));
+            sendBroadcast(scanIntent);
+
+            videoRecorder.release();
+            videoRecorder = null;
+
+            camera.lock();
+            camera.release();
+            camera = null;
+
+            gravandoVideo = false;
+            btnGravarVideo.setText("Gravar Vídeo");
+            Toast.makeText(this, "Vídeo salvo em: " + videoPath, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    //
+
 
     // Inicia a gravação de áudio, salvando o arquivo no armazenamento privado
     private void startAudioRecording(){
