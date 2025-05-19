@@ -3,5 +3,5 @@ plugins {
 alias(libs.plugins.android.application) apply false
 }
 dependencies {
-    implementation 'com.android.volley:volley:1.2.1'
+
 }
