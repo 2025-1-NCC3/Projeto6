@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+
+
+
+    <application
+
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProjetoPITrackTracker"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31"
+        >
+        <activity
+            android:name=".CorridaPassEmAndamento"
+            android:exported="false" />
+        <activity
+            android:name=".ViagemConcluida"
+            android:exported="false" />
+        <activity
+            android:name=".PreViagem"
+            android:exported="false" />
+        <activity
+            android:name=".ViagemEncontrada"
+            android:exported="false" />
+        <activity
+            android:name=".HomeMoto"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroPassFoto"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroMotoFoto"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroPassSenha"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroPassPessoal"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroMotoSenha"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroMotoCar"
+            android:exported="false" />
+        <activity
+            android:name=".CadastroMotoPessoal"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPass"
+            android:exported="false" />
+        <activity
+            android:name=".LoginMoto"
+            android:exported="false" />
+        <activity
+            android:name=".HomePassageiro"
+            android:exported="false" />
+        <activity android:name=".NovidadesActivity" />
+        <activity android:name=".CorridaPass" />
+        <activity android:name=".CorridaFinalPass" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+//
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+//
+
+</manifest>

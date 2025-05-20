@@ -13,34 +13,52 @@
         android:theme="@style/Theme.ProjetoPITrackTracker"
         tools:targetApi="31">
         <activity
-            android:name=".CadastroPassFoto"
+            android:name="br.fecap.pi.TrackTracker.ViagemConcluida"
             android:exported="false" />
         <activity
-            android:name=".CadastroMotoFoto"
+            android:name="br.fecap.pi.TrackTracker.PreViagem"
             android:exported="false" />
         <activity
-            android:name=".CadastroPassSenha"
+            android:name="br.fecap.pi.TrackTracker.ViagemEncontrada"
             android:exported="false" />
         <activity
-            android:name=".CadastroPassPessoal"
+            android:name="br.fecap.pi.TrackTracker.HomeMoto"
             android:exported="false" />
         <activity
-            android:name=".CadastroMotoSenha"
+            android:name="br.fecap.pi.TrackTracker.CadastroPassFoto"
             android:exported="false" />
         <activity
-            android:name=".CadastroMotoCar"
+            android:name="br.fecap.pi.TrackTracker.CadastroMotoFoto"
             android:exported="false" />
         <activity
-            android:name=".CadastroMotoPessoal"
+            android:name="br.fecap.pi.TrackTracker.CadastroPassSenha"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.TrackTracker.CadastroPassSenha"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.TrackTracker.CadastroPassPessoal"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.TrackTracker.CadastroPassPessoal"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.TrackTracker.CadastroMotoSenha"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.TrackTracker.CadastroMotoCar"
+            android:exported="false" />
+        <activity
+            android:name="br.fecap.pi.TrackTracker.CadastroMotoPessoal"
             android:exported="false" />
         <activity
             android:name=".CadastroMoto"
             android:exported="false" />
         <activity
-            android:name=".LoginPass"
+            android:name="br.fecap.pi.TrackTracker.LoginPass"
             android:exported="false" />
         <activity
-            android:name=".LoginMoto"
+            android:name="br.fecap.pi.TrackTracker.LoginMoto"
             android:exported="false" />
         <activity
             android:name=".Login"
@@ -49,32 +67,17 @@
             android:name=".CadastroMotoSelfie"
             android:exported="false" />
         <activity
-            android:name=".CadastroPassPessoal"
-            android:exported="false" />
-        <activity
-            android:name=".CadastroPassSenha"
-            android:exported="false" />
-
-        <activity
             android:name=".CadastroPassSelfie"
             android:exported="false" />
-
         <activity
-            android:name=".HomePassageiro"
+            android:name="br.fecap.pi.TrackTracker.HomePassageiro"
             android:exported="false" />
-
-        <activity android:name=".NovidadesActivity" />
-
-        <activity android:name=".CorridaPass" />
-
-        <activity android:name=".CorridaFinalPass" />
-
-
+        <activity android:name="br.fecap.pi.TrackTracker.NovidadesActivity" />
+        <activity android:name="br.fecap.pi.TrackTracker.CorridaPass" />
+        <activity android:name="br.fecap.pi.TrackTracker.CorridaFinalPass" />
         <activity
-            android:name=".MainActivity"
+            android:name="br.fecap.pi.TrackTracker.MainActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

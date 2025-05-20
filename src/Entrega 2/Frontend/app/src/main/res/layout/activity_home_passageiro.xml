@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro"
-    tools:context=".HomePassageiro">
+    tools:context="br.fecap.pi.TrackTracker.HomePassageiro">
 
     <TextView
         android:id="@+id/txtTitulo"

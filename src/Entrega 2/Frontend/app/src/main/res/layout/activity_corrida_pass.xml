@@ -6,10 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/cinzaClaro">
 
-    <!-- Mapa ou imagem representando a rota -->
-
-    <!-- Informações do motorista -->
-
     <ImageView
         android:id="@+id/imgMapaCorrida"
         android:layout_width="488dp"
