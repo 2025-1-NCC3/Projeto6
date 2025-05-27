@@ -17,6 +17,15 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import android.util.Base64;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 import java.io.ByteArrayOutputStream;
 
@@ -157,20 +166,58 @@ public class CadastroPassFoto extends AppCompatActivity {
     }
 
     // Este método precisa ser modificado para chamar as APIs
-    public void seguinteLogin(View view){
+    public void seguinteLogin(View view) {
         if (imagemSelecionada == null) {
             Toast.makeText(this, "Por favor, selecione ou tire uma foto!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Simulando envio dos dados (aqui você colocaria chamada real à API se necessário)
-        // Você pode usar Retrofit, Volley, ou HttpUrlConnection, por exemplo.
+        String url = "https://1ee2-2804-7f0-3ce-19f6-e6de-16a5-b196-289f.ngrok-free.app/cadastrar-passageiro";
 
-        // Se tudo certo, navega para a tela de login
-        Intent intent = new Intent(this, LoginPass.class);
-        startActivity(intent);
-        finish();
+        // Codificar imagem para base64
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        imagemSelecionada.compress(Bitmap.CompressFormat.PNG, 100, stream);
+        byte[] imagemBytes = stream.toByteArray();
+        String imagemBase64 = Base64.encodeToString(imagemBytes, Base64.DEFAULT);
+
+        // Montar JSON
+        JSONObject payload = new JSONObject();
+        try {
+            payload.put("Nome", nome);
+            payload.put("Sobrenome", sobrenome);
+            payload.put("CPF", cpf);
+            payload.put("DataNascimento", dataNasc);
+            payload.put("Email", email);
+            payload.put("Telefone", telefone);
+            payload.put("Endereco", endereco);
+            payload.put("Senha", senha);
+            payload.put("Foto", imagemBase64); // <- backend precisa aceitar imagem como base64
+        } catch (JSONException e) {
+            Toast.makeText(this, "Erro ao montar JSON", Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
+            return;
+        }
+
+        // Enviar com Volley
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST, url, payload,
+                response -> {
+                    Toast.makeText(this, "Cadastro realizado com sucesso!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(this, LoginPass.class);
+                    startActivity(intent);
+                    finish();
+                },
+                error -> {
+                    Toast.makeText(this, "Erro no cadastro", Toast.LENGTH_LONG).show();
+                    error.printStackTrace();
+                }
+        );
+
+        // Adicionar à fila
+        Volley.newRequestQueue(this).add(request);
     }
+
+
 
 
     // Você precisará adicionar um método aqui para realizar o cadastro e upload

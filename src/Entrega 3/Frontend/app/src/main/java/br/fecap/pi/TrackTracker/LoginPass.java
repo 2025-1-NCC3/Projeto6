@@ -32,7 +32,7 @@ public class LoginPass extends AppCompatActivity {
     private EditText etEmail, etSenha;
     private Button btnLogin; // Renomeado de btnSeguinte para clareza
     private RequestQueue requestQueue;
-    private final String URL_BASE_BACKEND = "http://localhost:3000"; // Ex: "http://10.0.2.2:3000" para emulador
+    private final String URL_BASE_BACKEND = "https://1ee2-2804-7f0-3ce-19f6-e6de-16a5-b196-289f.ngrok-free.app"; // Ex: "http://10.0.2.2:3000" para emulador
     private static final String TAG = "LoginPassActivity";
 
     @Override
