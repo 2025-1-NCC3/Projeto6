@@ -172,7 +172,7 @@ public class CadastroPassFoto extends AppCompatActivity {
             return;
         }
 
-        String url = "https://1ee2-2804-7f0-3ce-19f6-e6de-16a5-b196-289f.ngrok-free.app/cadastrar-passageiro";
+        String url = "https://1ee2-2804-7f0-3ce-19f6-e6de-16a5-b196-289f.ngrok-free.app/regp";
 
         // Codificar imagem para base64
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
